@@ -1,6 +1,6 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .button {
   @include mono-button;
@@ -24,4 +24,16 @@
   background: transparent;
   color: $text-light-primary;
   border-color: $text-light-primary;
+}
+
+.white {
+  background: $text-dark-secondary;
+  color: black;
+  border-color: $text-dark-secondary;
+}
+
+.white_outline {
+  background: transparent;
+  color: $text-dark-primary;
+  border-color: $text-dark-primary;
 }

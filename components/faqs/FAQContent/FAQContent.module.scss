@@ -1,6 +1,6 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   background: $bg-light;
@@ -27,7 +27,7 @@
 }
 
 .catLabel {
-  @include mono-sm;
+  @include mono-md;
   color: $text-light-muted;
   margin-bottom: $space-4;
   margin-top: $space-8;
@@ -99,8 +99,8 @@
 }
 
 .sideLabel {
-  @include mono-xs;
-  color: $text-dark-muted;
+  @include mono-md;
+  color: $text-light-primary;
   margin-bottom: $space-3;
   display: block;
 }
