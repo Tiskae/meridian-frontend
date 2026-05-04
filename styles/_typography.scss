@@ -1,0 +1,89 @@
+@use "tokens" as *;
+
+@mixin display-xl {
+  font-family: $font-display;
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+@mixin display-lg {
+  font-family: $font-display;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+
+@mixin display-md {
+  font-family: $font-display;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+@mixin display-sm {
+  font-family: $font-display;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+@mixin body {
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+@mixin body-sm {
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+@mixin mono-label {
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+@mixin mono-md {
+  font-family: $font-mono;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+@mixin mono-sm {
+  font-family: $font-mono;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+@mixin mono-xs {
+  font-family: $font-mono;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+@mixin mono-button {
+  font-family: $font-mono;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}

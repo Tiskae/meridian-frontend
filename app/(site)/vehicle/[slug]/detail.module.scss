@@ -1,0 +1,193 @@
+@use "../../../../styles/tokens" as *;
+@use "../../../../styles/typography" as *;
+@use "../../../../styles/mixins" as *;
+
+// ─── Back Link ─────────────────────────────────────────────────────────────
+
+.backBar {
+  padding: 0 $side-pad-mobile $space-12;
+  display: flex;
+  justify-content: center;
+
+  @include tablet {
+    padding: 0 $side-pad-tablet $space-12;
+  }
+
+  @include desktop {
+    padding: 0 $side-pad-hero $space-12;
+  }
+}
+
+.backLink {
+  @include mono-sm;
+  color: $text-light-muted;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+// ─── Header ────────────────────────────────────────────────────────────────
+
+.header {
+  padding: $space-5 $side-pad-mobile 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  @include tablet {
+    padding: $space-5 $side-pad-tablet 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  @include desktop {
+    padding: $space-5 $side-pad-hero 0;
+  }
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.stockLabel {
+  @include mono-md;
+  color: $text-light-muted;
+  margin-bottom: $space-2;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(25px, 4vw, 45px);
+  color: $text-light-primary;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.headerRight {
+  @include tablet {
+    text-align: right;
+  }
+}
+
+.priceLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: $space-1;
+}
+
+.price {
+  font-family: $font-display;
+  font-size: 28px;
+  color: $text-light-primary;
+}
+
+// ─── Content Layout ────────────────────────────────────────────────────────
+
+.content {
+  padding: 0 $side-pad-mobile $space-16;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+
+  @include tablet {
+    padding: 0 $side-pad-tablet $space-16;
+  }
+
+  @include desktop {
+    padding: 0 $side-pad-hero $space-16;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: $space-10;
+    align-items: start;
+  }
+}
+
+.specsCol {
+  min-width: 0;
+}
+
+// ─── Sticky CTA Rail ──────────────────────────────────────────────────────
+
+.ctaRail {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding-top: $space-7;
+
+  @include desktop {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.ctaPrimary {
+  @include mono-label;
+  background: $text-light-primary;
+  color: $bg-light;
+  padding: 15px;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  @include hover-lift;
+}
+
+.ctaSecondary {
+  @include mono-label;
+  background: transparent;
+  color: $text-light-primary;
+  padding: 15px;
+  border: 1px solid $text-light-primary;
+  width: 100%;
+  text-align: center;
+  @include hover-lift;
+}
+
+.ctaDivider {
+  height: 1px;
+  background: rgba(201, 197, 184, 0.4);
+  margin: $space-2 0;
+}
+
+.ctaMeta {
+  @include mono-md;
+  color: $text-light-muted;
+  line-height: 1.8;
+}
+
+// ─── Related Vehicles ──────────────────────────────────────────────────────
+
+.related {
+  padding: 0 $side-pad-mobile $space-12;
+
+  @include tablet {
+    padding: 0 $side-pad-tablet $space-12;
+  }
+
+  @include desktop {
+    padding: 0 $side-pad-hero $space-12;
+  }
+}
+
+.relatedDivider {
+  margin-bottom: $space-6;
+}
+
+.relatedGrid {
+  margin-top: $space-7;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

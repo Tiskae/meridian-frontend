@@ -1,0 +1,185 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: $space-8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  align-items: start;
+
+  @include desktop {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.headline {
+  @include display-md;
+  color: $text-light-primary;
+  margin-bottom: $space-5;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.body {
+  @include body;
+  color: $text-light-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-5;
+}
+
+.imgWrap {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.tierRow {
+  padding: $space-7 0;
+  border-bottom: 1px solid $border-light;
+}
+
+.tierHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: $space-3;
+}
+
+.tierName {
+  font-family: $font-display;
+  font-size: 24px;
+  color: $text-light-primary;
+}
+
+.tierPrice {
+  font-family: $font-display;
+  font-size: 20px;
+  color: $text-light-secondary;
+}
+
+.tierMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-2 $space-5;
+  margin-bottom: $space-2;
+}
+
+.tierMetaItem {
+  display: flex;
+  gap: $space-2;
+  @include mono-xs;
+}
+
+.tierMetaKey {
+  color: $text-light-muted;
+}
+
+.tierMetaDash {
+  color: $text-light-muted;
+}
+
+.tierMetaVal {
+  color: $text-light-primary;
+}
+
+.tierIncludes {
+  @include body-sm;
+  color: $text-light-muted;
+  margin-top: $space-2;
+}
+
+.formWrap {
+  // Container for form
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5 $space-7;
+  margin-top: $space-7;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.select {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+}
+
+.submitted {
+  padding: $space-5 0;
+  margin-top: $space-7;
+}
+
+.submittedHead {
+  font-family: $font-display;
+  font-size: 24px;
+  color: $text-light-primary;
+  margin-bottom: $space-3;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.submittedBody {
+  @include body-sm;
+  color: $text-light-secondary;
+}

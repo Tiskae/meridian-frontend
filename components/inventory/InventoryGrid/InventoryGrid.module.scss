@@ -1,0 +1,47 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.gridWrapper {
+  padding: $space-5 $side-pad-mobile $space-12;
+
+  @include tablet {
+    padding: $space-5 $side-pad-tablet $space-12;
+  }
+
+  @include desktop {
+    padding: $space-5 $side-pad-hero $space-12;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+  margin-bottom: $space-10;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.empty {
+  padding: $space-12 0;
+  text-align: center;
+}
+
+.emptyTitle {
+  font-family: $font-display;
+  font-size: 28px;
+  color: $text-light-secondary;
+  margin-bottom: $space-3;
+}
+
+.emptyBody {
+  @include mono-md;
+  color: $text-light-muted;
+}

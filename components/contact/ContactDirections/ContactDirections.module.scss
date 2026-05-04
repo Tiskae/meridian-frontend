@@ -1,0 +1,61 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $bg-dark;
+  padding: $space-12 $side-pad-mobile;
+
+  @include tablet {
+    padding: $space-12 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-12 $side-pad-desktop;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  align-items: center;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.headline {
+  @include display-md;
+  color: $text-dark-primary;
+  margin-bottom: $space-5;
+  margin-top: $space-5;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.dirRow {
+  padding: $space-4 0;
+  border-bottom: 1px solid $border-dark;
+}
+
+.from {
+  @include mono-xs;
+  color: $text-dark-muted;
+  margin-bottom: 6px;
+}
+
+.directions {
+  @include body-sm;
+  color: $text-dark-secondary;
+  line-height: 1.6;
+}
+
+.imgWrap {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}

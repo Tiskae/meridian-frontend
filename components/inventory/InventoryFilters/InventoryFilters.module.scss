@@ -1,0 +1,123 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.wrapper {
+  position: sticky;
+  top: 68px;
+  z-index: 50;
+  background: $surface-light;
+  margin-top: $space-6;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px $side-pad-mobile;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.5);
+  border-top: 1px solid rgba(201, 197, 184, 0.5);
+  overflow-x: auto;
+
+  @include tablet {
+    padding: 14px $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: 14px $side-pad-hero;
+    overflow-x: visible;
+  }
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-shrink: 0;
+}
+
+.groupLabel {
+  @include mono-sm;
+  color: $text-light-secondary;
+  font-weight: 500;
+}
+
+.pills {
+  display: flex;
+  gap: 6px;
+}
+
+.pill {
+  @include mono-xs;
+  padding: 7px 14px;
+  background: transparent;
+  color: $text-light-secondary;
+  border: 1px solid $border-light;
+  cursor: pointer;
+  transition: all $dur-feedback $ease;
+  white-space: nowrap;
+}
+
+.pillActive {
+  background: $text-light-primary;
+  color: $bg-light;
+  border-color: $text-light-primary;
+}
+
+.separator {
+  width: 1px;
+  height: 24px;
+  background: rgba(201, 197, 184, 0.5);
+  margin: 0 20px;
+  flex-shrink: 0;
+}
+
+.select {
+  @include mono-xs;
+  color: $text-light-secondary;
+  background: transparent;
+  border: 1px solid $border-light;
+  padding: 7px 14px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 120px;
+
+  // Dropdown chevron
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23706b5d' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.selectActive {
+  background-color: $text-light-primary;
+  color: $bg-light;
+  border-color: $text-light-primary;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23f6f5f2' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.sortGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.count {
+  padding: 20px $side-pad-mobile 0;
+
+  @include tablet {
+    padding: 20px $side-pad-tablet 0;
+  }
+
+  @include desktop {
+    padding: 20px $side-pad-hero 0;
+  }
+
+  span {
+    @include mono-sm;
+    color: $text-light-muted;
+  }
+}

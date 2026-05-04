@@ -1,0 +1,8 @@
+@use '../styles/reset';
+@use '../styles/tokens' as *;
+
+body {
+  background: $bg-light;
+  font-family: $font-body;
+  color: $text-light-primary;
+}

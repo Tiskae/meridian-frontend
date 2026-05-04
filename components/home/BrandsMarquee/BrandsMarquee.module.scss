@@ -1,0 +1,47 @@
+@use "../../../styles/tokens" as *;
+
+@keyframes marqueeScrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.wrapper {
+  background: $bg-light;
+  border-top: 1px solid rgba(201, 197, 184, 0.4);
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.track {
+  display: flex;
+  gap: 64px;
+  width: max-content;
+  animation: marqueeScrollLogos 100s linear infinite;
+}
+
+.logoWrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // height: 32px;
+  // opacity: 0.35;
+  transition: opacity $dur-hover $ease;
+
+  // &:hover {
+  // opacity: 0.6;
+  // }
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  // filter: grayscale(100%);
+}

@@ -1,0 +1,92 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $bg-dark;
+  padding: $space-14 $side-pad-mobile;
+
+  @include tablet {
+    padding: $space-14 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-14 $side-pad-desktop;
+  }
+}
+
+.headerDivider {
+  margin-bottom: $space-10;
+}
+
+.lead {
+  margin-bottom: $space-10;
+  max-width: 600px;
+}
+
+.leadHeadline {
+  @include display-md;
+  color: $text-dark-primary;
+  margin-bottom: $space-4;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.leadBody {
+  @include body;
+  color: $text-dark-muted;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include desktop {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  padding: $space-7 0;
+  border-top: 1px solid $border-dark;
+
+  @include desktop {
+    &[data-index='1'],
+    &[data-index='3'] {
+      border-left: 1px solid $border-dark;
+      padding-left: $space-8;
+    }
+
+    &[data-index='0'],
+    &[data-index='2'] {
+      padding-right: $space-8;
+    }
+  }
+}
+
+.cardNum {
+  @include mono-sm;
+  color: $text-dark-muted;
+  margin-bottom: $space-3;
+}
+
+.cardTitle {
+  font-family: $font-display;
+  font-size: 28px;
+  color: $text-dark-primary;
+  line-height: 1.1;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.cardBody {
+  @include body-sm;
+  color: $text-dark-muted;
+  line-height: 1.7;
+}

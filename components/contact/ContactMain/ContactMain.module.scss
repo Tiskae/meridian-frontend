@@ -1,0 +1,216 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-12;
+  align-items: start;
+
+  @include desktop {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.addressName {
+  font-family: $font-display;
+  font-size: 24px;
+  color: $text-light-primary;
+  margin-bottom: $space-5;
+}
+
+.addressText {
+  @include body;
+  color: $text-light-secondary;
+  line-height: 1.8;
+}
+
+.infoDivider {
+  margin: $space-5 0;
+}
+
+.infoRow {
+  margin-bottom: $space-4;
+}
+
+.infoLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.infoValue {
+  @include body;
+  color: $text-light-secondary;
+}
+
+.infoLink {
+  @include body;
+  color: $text-light-secondary;
+  text-decoration: none;
+  transition: color $dur-feedback $ease;
+
+  &:hover {
+    color: $text-light-primary;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: $space-5;
+  align-items: center;
+  margin-top: $space-5;
+  padding-top: $space-5;
+  border-top: 1px solid $border-light;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-light-muted;
+  text-decoration: none;
+  transition: color $dur-feedback $ease, transform $dur-hover $ease;
+
+  &:hover {
+    color: $text-light-primary;
+    transform: translateY(-4px);
+  }
+}
+
+.imgWrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  margin-top: $space-7;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5 $space-7;
+  margin-top: $space-5;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.textarea {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  resize: vertical;
+  min-height: 140px;
+  border-radius: 0;
+  font-family: $font-body;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.select {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.responseTimes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3;
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: 1px solid rgba(201, 197, 184, 0.4);
+}
+
+.responseRow {
+  display: flex;
+  gap: $space-2;
+  @include mono-xs;
+}
+
+.responseChannel {
+  color: $text-light-muted;
+}
+
+.responseDash {
+  color: $text-light-muted;
+}
+
+.responseTime {
+  color: $text-light-primary;
+}
+
+.submitted {
+  padding: $space-8 0;
+}
+
+.submittedHead {
+  font-family: $font-display;
+  font-size: 32px;
+  color: $text-light-primary;
+  margin-bottom: $space-4;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.submittedBody {
+  @include body;
+  color: $text-light-secondary;
+  margin-bottom: $space-5;
+}

@@ -1,0 +1,42 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.header {
+  padding: $space-8 $side-pad-mobile 0;
+
+  @include tablet {
+    padding: $space-8 $side-pad-tablet 0;
+  }
+
+  @include desktop {
+    padding: $space-8 $side-pad-hero 0;
+  }
+}
+
+.label {
+  @include mono-md;
+  color: $text-light-muted;
+  margin-bottom: $space-4;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: $text-light-primary;
+  margin-bottom: $space-3;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.subtitle {
+  @include body;
+  font-size: 15px;
+  color: $text-light-secondary;
+  max-width: 420px;
+}

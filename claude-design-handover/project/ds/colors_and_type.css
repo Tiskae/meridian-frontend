@@ -1,0 +1,398 @@
+/*
+ * Meridian Motors — Design Tokens
+ * colors_and_type.css
+ *
+ * Import this file to access all brand tokens.
+ * Fonts loaded via Google Fonts (Instrument Serif, Manrope, JetBrains Mono).
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─────────────────────────────────────────────
+   BASE COLOR TOKENS
+───────────────────────────────────────────── */
+
+:root {
+  /* Light mode — primary (80% of site) */
+  --bg:             #f6f5f2;   /* Warm off-white canvas */
+  --surface:        #fbfaf7;   /* Elevated surfaces, nav */
+  --fg-1:           #0a0a09;   /* Primary text — warm near-black */
+  --fg-2:           #3f3c34;   /* Secondary text */
+  --fg-muted:       #706b5d;   /* Muted labels, section numbers */
+  --border:         #c9c5b8;   /* Hairline (use at 60% opacity) */
+  --border-solid:   rgba(201,197,184,0.6); /* Hairline at canonical opacity */
+
+  /* Dark mode — selective sections */
+  --dark-bg:        #0a0a09;
+  --dark-surface:   #121110;
+  --dark-fg-1:      #f6f5f2;
+  --dark-fg-2:      #c9c5b8;
+  --dark-fg-muted:  #a29d8c;
+  --dark-border:    rgba(42,40,34,0.6);
+
+  /* ─── TYPOGRAPHY ─── */
+
+  /* Families */
+  --font-display:   'Instrument Serif', Georgia, serif;
+  --font-body:      'Manrope', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  /* Display scale */
+  --text-display-hero:    clamp(52px, 7vw, 96px);
+  --text-display-xl:      clamp(40px, 5.5vw, 72px);
+  --text-display-lg:      clamp(32px, 4vw, 56px);
+  --text-display-md:      clamp(26px, 3vw, 40px);
+  --text-display-sm:      clamp(22px, 2.5vw, 32px);
+
+  /* Body scale */
+  --text-body-lg:   18px;
+  --text-body:      16px;
+  --text-body-sm:   14px;
+
+  /* Mono scale */
+  --text-mono-lg:   12px;
+  --text-mono:      11px;
+  --text-mono-sm:   10px;
+
+  /* Letter spacing */
+  --ls-mono:        0.2em;
+  --ls-mono-wide:   0.25em;
+
+  /* Line heights */
+  --lh-display:     1.05;
+  --lh-display-md:  1.15;
+  --lh-body:        1.65;
+  --lh-body-tight:  1.4;
+  --lh-mono:        1.5;
+
+  /* ─── SPACING ─── */
+
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:    12px;
+  --space-4:    16px;
+  --space-5:    24px;
+  --space-6:    32px;
+  --space-7:    40px;
+  --space-8:    48px;
+  --space-9:    64px;
+  --space-10:   80px;
+  --space-11:   96px;
+  --space-12:   120px;
+  --space-hero: 200px;
+
+  /* Grid */
+  --grid-cols:    12;
+  --grid-gutter:  24px;
+  --max-width:    1280px;
+  --max-width-hero: 1440px;
+  --side-pad-mobile:  24px;
+  --side-pad-tablet:  40px;
+  --side-pad-desktop: 64px;
+  --side-pad-hero:    80px;
+
+  /* ─── MOTION ─── */
+
+  --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro:    200ms;
+  --dur-hover:    500ms;
+  --dur-reveal:   800ms;
+  --dur-gallery:  1200ms;
+  --dur-kenburns: 8000ms;
+
+  /* ─── BORDERS ─── */
+
+  --radius: 0;          /* Sharp everywhere */
+  --border-width: 1px;  /* Hairline */
+}
+
+/* ─────────────────────────────────────────────
+   SEMANTIC CSS VARS — mapped to roles
+───────────────────────────────────────────── */
+
+:root {
+  /* Page */
+  --color-bg:           var(--bg);
+  --color-surface:      var(--surface);
+
+  /* Text */
+  --color-text:         var(--fg-1);
+  --color-text-sec:     var(--fg-2);
+  --color-text-muted:   var(--fg-muted);
+
+  /* Borders */
+  --color-border:       var(--border-solid);
+
+  /* CTA — Light context */
+  --btn-primary-bg:     var(--fg-1);
+  --btn-primary-fg:     var(--bg);
+  --btn-secondary-bg:   transparent;
+  --btn-secondary-fg:   var(--fg-1);
+  --btn-secondary-border: var(--fg-1);
+}
+
+/* Dark section override — apply .section-dark to any section */
+.section-dark {
+  --color-bg:         var(--dark-bg);
+  --color-surface:    var(--dark-surface);
+  --color-text:       var(--dark-fg-1);
+  --color-text-sec:   var(--dark-fg-2);
+  --color-text-muted: var(--dark-fg-muted);
+  --color-border:     var(--dark-border);
+  --btn-primary-bg:   var(--dark-fg-1);
+  --btn-primary-fg:   var(--dark-bg);
+  --btn-secondary-fg: var(--dark-fg-1);
+  --btn-secondary-border: var(--dark-fg-1);
+
+  background-color: var(--dark-bg);
+  color: var(--dark-fg-1);
+}
+
+/* ─────────────────────────────────────────────
+   BASE TYPOGRAPHIC ELEMENTS
+───────────────────────────────────────────── */
+
+.display-hero {
+  font-family: var(--font-display);
+  font-size: var(--text-display-hero);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: -0.02em;
+}
+
+.display-xl {
+  font-family: var(--font-display);
+  font-size: var(--text-display-xl);
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: -0.015em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: var(--text-display-lg);
+  font-weight: 400;
+  line-height: var(--lh-display-md);
+  letter-spacing: -0.01em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: var(--text-display-md);
+  font-weight: 400;
+  line-height: var(--lh-display-md);
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-size: var(--text-display-sm);
+  font-weight: 400;
+  line-height: var(--lh-display-md);
+}
+
+/* Italic emphasis inside display — the primary emphasis tool */
+.display-hero em,
+.display-xl em,
+.display-lg em,
+.display-md em,
+.display-sm em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  font-weight: 400;
+  line-height: var(--lh-body);
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--lh-body);
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 400;
+  line-height: var(--lh-body);
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  font-weight: 400;
+  line-height: var(--lh-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+.mono-label-lg {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-lg);
+  font-weight: 400;
+  line-height: var(--lh-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+.mono-sm {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono-sm);
+  font-weight: 400;
+  line-height: var(--lh-mono);
+  letter-spacing: var(--ls-mono-wide);
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────
+   COMPONENT PRIMITIVES
+───────────────────────────────────────────── */
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  font-weight: 400;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border: var(--border-width) solid transparent;
+  cursor: pointer;
+  transition: transform var(--dur-hover) var(--ease);
+  text-decoration: none;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  border-color: var(--btn-primary-bg);
+}
+
+.btn-secondary {
+  background: var(--btn-secondary-bg);
+  color: var(--btn-secondary-fg);
+  border-color: var(--btn-secondary-border);
+}
+
+/* Hairline divider */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border);
+  border: none;
+}
+
+/* Section label — "— 01 / Featured" */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  font-weight: 400;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Spec row — "Engine — 4.0L Biturbo V8" */
+.spec-row {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+}
+
+.spec-row .spec-key {
+  color: var(--color-text-muted);
+}
+
+.spec-row .spec-sep {
+  color: var(--color-text-muted);
+}
+
+.spec-row .spec-val {
+  color: var(--color-text);
+}
+
+/* Signature reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal {
+  animation: revealUp var(--dur-reveal) var(--ease) both;
+}
+
+/* Ken-Burns — homepage hero only */
+@keyframes kenBurns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
+}
+
+.ken-burns {
+  animation: kenBurns var(--dur-kenburns) var(--ease) forwards;
+}
+
+/* ─────────────────────────────────────────────
+   LAYOUT UTILITIES
+───────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--side-pad-desktop);
+  padding-right: var(--side-pad-desktop);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding-left: var(--side-pad-tablet);
+    padding-right: var(--side-pad-tablet);
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--side-pad-mobile);
+    padding-right: var(--side-pad-mobile);
+  }
+}
+
+.section-pad {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+@media (max-width: 640px) {
+  .section-pad {
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+  }
+}
+
+.hero-pad {
+  padding-top: var(--space-hero);
+  padding-bottom: var(--space-hero);
+}

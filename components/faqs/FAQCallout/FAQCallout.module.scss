@@ -1,0 +1,55 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $bg-dark;
+  padding: $space-12 $side-pad-mobile;
+  margin-top: $space-12;
+
+  @include tablet {
+    padding: $space-12 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-12 $side-pad-desktop;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+  align-items: center;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.headline {
+  @include display-md;
+  color: $text-dark-primary;
+  margin-bottom: $space-3;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.body {
+  @include body;
+  color: $text-dark-muted;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: $space-4;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  @include desktop {
+    justify-content: flex-end;
+  }
+}

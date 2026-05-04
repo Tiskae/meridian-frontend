@@ -1,0 +1,135 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.wrapper {
+  padding-top: $space-7;
+}
+
+.description {
+  font-family: $font-display;
+  font-size: 18px;
+  word-spacing: 15%;
+  // font-style: italic;
+  color: $text-light-secondary;
+  line-height: 1.4;
+  margin: 0 0 $space-7;
+  padding-left: $space-5;
+  border-left: 1px solid rgba(201, 197, 184, 0.5);
+}
+
+.sectionLabel {
+  @include mono-md;
+  font-weight: 500;
+  color: $text-light-primary;
+  margin-bottom: $space-4;
+  margin-top: $space-8;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+// ─── Spec Rows ─────────────────────────────────────────────────────────────
+
+.specList {
+  display: flex;
+  flex-direction: column;
+}
+
+.specRow {
+  display: flex;
+  gap: $space-3;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  align-items: baseline;
+}
+
+.specKey {
+  @include mono-sm;
+  font-size: 11px;
+  color: $text-light-muted;
+  min-width: 100px;
+
+  @include desktop {
+    min-width: 130px;
+  }
+}
+
+.specSep {
+  @include mono-sm;
+  font-size: 11px;
+  color: $text-dark-muted;
+}
+
+.specVal {
+  @include mono-sm;
+  font-size: 11px;
+  color: $text-light-primary;
+  letter-spacing: 0.12em;
+}
+
+// ─── Features ──────────────────────────────────────────────────────────────
+
+.featuresSection {
+  margin-top: $space-8;
+}
+
+.featureGroup {
+  margin-bottom: $space-6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.featureCategoryLabel {
+  @include mono-md;
+  color: $text-light-primary;
+  margin-bottom: $space-3;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featureItem {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 300;
+  color: $text-light-secondary;
+
+  @include tablet {
+    &[data-index]:nth-child(odd) {
+      padding-right: $space-5;
+    }
+
+    &[data-index]:nth-child(even) {
+      padding-left: $space-5;
+      border-left: 1px solid rgba(201, 197, 184, 0.4);
+    }
+  }
+}
+
+// ─── Highlights ────────────────────────────────────────────────────────────
+
+.highlights {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.highlightItem {
+  @include body-sm;
+  color: $text-light-secondary;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+}

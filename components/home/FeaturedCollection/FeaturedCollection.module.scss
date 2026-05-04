@@ -1,0 +1,33 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-16 $side-pad-mobile $space-12;
+  background: $bg-light;
+
+  @include tablet {
+    padding: $space-16 $side-pad-tablet $space-12;
+  }
+
+  @include desktop {
+    padding: $space-16 $side-pad-hero $space-12;
+  }
+}
+
+.headerDivider {
+  margin-bottom: $space-7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

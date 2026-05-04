@@ -1,0 +1,42 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.label {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+
+  span {
+    @include mono-md;
+    color: $text-light-muted;
+  }
+}
+
+.left {
+  top: $space-6;
+  left: $side-pad-mobile;
+
+  @include tablet {
+    left: $side-pad-tablet;
+  }
+
+  @include desktop {
+    left: $side-pad-hero;
+  }
+}
+
+.right {
+  top: $space-6;
+  right: $side-pad-mobile;
+
+  @include tablet {
+    right: $side-pad-tablet;
+  }
+
+  @include desktop {
+    right: $side-pad-hero;
+  }
+}

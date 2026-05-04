@@ -1,0 +1,196 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: $space-8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  align-items: start;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.sliderRow {
+  margin-bottom: $space-7;
+}
+
+.sliderMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $space-3;
+}
+
+.sliderLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+}
+
+.sliderValue {
+  @include mono-sm;
+  color: $text-light-primary;
+}
+
+.slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1px;
+  background: $border-light;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: $text-light-primary;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  &::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: $text-light-primary;
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.resultDivider {
+  border-top: 1px solid $border-light;
+  padding-top: $space-7;
+  margin-top: $space-7;
+}
+
+.resultLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+}
+
+.resultAmount {
+  @include display-lg;
+  color: $text-light-primary;
+  margin-bottom: $space-2;
+}
+
+.resultMeta {
+  @include mono-xs;
+  color: $text-dark-muted;
+  margin-bottom: $space-5;
+}
+
+.breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid $border-light;
+}
+
+.breakStat {
+  padding: $space-4 0;
+  border-top: 1px solid rgba(201, 197, 184, 0.4);
+}
+
+.breakLabel {
+  @include mono-xs;
+  color: $text-dark-muted;
+  margin-bottom: $space-1;
+}
+
+.breakValue {
+  font-family: $font-display;
+  font-size: 18px;
+  color: $text-light-primary;
+}
+
+.imgWrap {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  margin-bottom: $space-7;
+}
+
+.formLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: $space-5;
+  display: block;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5 $space-7;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-light-muted;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+}
+
+.submitted {
+  padding: $space-5 0;
+}
+
+.submittedHead {
+  font-family: $font-display;
+  font-size: 24px;
+  color: $text-light-primary;
+  margin-bottom: $space-3;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.submittedBody {
+  @include body-sm;
+  color: $text-light-secondary;
+}

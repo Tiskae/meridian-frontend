@@ -1,0 +1,250 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.hero {
+  position: relative;
+  background: $bg-light;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 $side-pad-mobile $space-12;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 0 $side-pad-tablet $space-12;
+  }
+
+  @include desktop {
+    padding: 0 $side-pad-hero $space-12;
+  }
+}
+
+// ─── Sliding background strip ──────────────────────────────────────────────
+
+.bgWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+// The strip holds all slides side-by-side; GSAP animates translateX
+.bgStrip {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+
+// Each slide = one full hero width
+.bgSlide {
+  flex: 0 0 100vw;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  // next/image fill child
+  img {
+    object-fit: cover;
+  }
+}
+
+.bgPlaceholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #d4d0c8 0%, #a8a498 25%, #706b5d 50%, #3f3c34 80%, #1a1918 100%);
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 245, 242, 0.05) 0%,
+    rgba(246, 245, 242, 0.5) 55%,
+    rgba(246, 245, 242, 0.72) 70%,
+    rgba(246, 245, 242, 0.8) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 245, 242, 0) 0%,
+    rgba(246, 245, 242, 0.5) 55%,
+    rgba(246, 245, 242, 0.72) 70%,
+    rgba(246, 245, 242, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+// ─── Content ───────────────────────────────────────────────────────────────
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: $space-7;
+  }
+}
+
+.left {
+  // background-color: rgba(246, 245, 242, 0.72);
+  // padding: 30px;
+  @include desktop {
+    flex: 0 0 58%;
+  }
+}
+
+.sectionLabel {
+  @include mono-sm;
+  color: $text-light-secondary;
+  margin-bottom: $space-5;
+}
+
+.headline {
+  font-family: $font-display;
+  font-size: clamp(38px, 6vw, 70px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: $text-light-primary;
+  margin-bottom: $space-5;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.subline {
+  @include body;
+  color: $text-light-secondary;
+  margin-bottom: $space-7;
+  max-width: 510px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: $space-4;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+// ─── Right panel ───────────────────────────────────────────────────────────
+
+.right {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    gap: $space-5;
+    flex: 0 0 34%;
+  }
+}
+
+.specPanel {
+  border-left: 1px solid rgba(201, 197, 184, 0.5);
+  padding-left: $space-6;
+}
+
+.featuredLabel {
+  @include mono-sm;
+  color: $text-light-secondary;
+  margin-bottom: $space-3;
+}
+
+.featuredName {
+  font-family: $font-display;
+  font-size: 22px;
+  color: $text-light-primary;
+  line-height: 1.2;
+  margin-bottom: $space-4;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.featuredDivider {
+  margin-bottom: $space-4;
+}
+
+.specList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.specRow {
+  display: flex;
+  gap: $space-2;
+  @include mono-sm;
+}
+
+.specKey {
+  color: $text-light-muted;
+  min-width: 64px;
+}
+
+.specSep {
+  color: $text-dark-muted;
+}
+
+.specVal {
+  color: $text-light-primary;
+}
+
+.featuredLink {
+  @include mono-sm;
+  color: $text-light-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-block;
+  margin-top: $space-4;
+  transition: transform $dur-hover $ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// ─── Slide indicators ──────────────────────────────────────────────────────
+
+.dots {
+  display: flex;
+  gap: $space-2;
+  padding-left: $space-6;
+}
+
+.dot {
+  width: 24px;
+  height: 1px;
+  background: rgba(201, 197, 184, 0.6);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  // expand the click area without enlarging the visible line
+  position: relative;
+  transition: background $dur-feedback $ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
+  }
+
+  &:hover {
+    background: $text-light-secondary;
+  }
+}
+
+.dotActive {
+  background: $text-light-primary;
+  width: 40px;
+}

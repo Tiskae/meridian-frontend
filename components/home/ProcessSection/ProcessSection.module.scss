@@ -1,0 +1,74 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding: $space-14 $side-pad-mobile;
+  background: $bg-dark;
+
+  @include tablet {
+    padding: $space-14 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-14 $side-pad-hero;
+  }
+}
+
+.headerDivider {
+  margin-bottom: $space-10;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.step {
+  padding: $space-7 0;
+  border-top: 1px solid $border-dark;
+
+  @include tablet {
+    // Odd steps (right column): left padding + left border
+    &[data-index='1'],
+    &[data-index='3'] {
+      padding-left: $space-8;
+      border-left: 1px solid $border-dark;
+    }
+
+    // Even steps (left column): right padding
+    &[data-index='0'],
+    &[data-index='2'] {
+      padding-right: $space-8;
+    }
+  }
+}
+
+.stepNum {
+  @include mono-sm;
+  color: $text-dark-muted;
+  margin-bottom: $space-3;
+}
+
+.stepTitle {
+  font-family: $font-display;
+  font-size: 32px;
+  color: $text-dark-primary;
+  line-height: 1.1;
+  margin-bottom: 14px;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.stepBody {
+  @include body-sm;
+  color: $text-dark-muted;
+  line-height: 1.7;
+}

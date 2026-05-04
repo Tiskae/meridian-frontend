@@ -1,0 +1,279 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $side-pad-mobile;
+  height: 68px;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.2);
+  background: rgba(251, 250, 247, 0.95);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition:
+    border-color $dur-hover $ease,
+    background $dur-hover $ease;
+
+  @include tablet {
+    padding: 0 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: 0 $side-pad-desktop;
+  }
+}
+
+.scrolled {
+  border-bottom-color: rgba(201, 197, 184, 0.5);
+  background: $surface-light;
+  backdrop-filter: none;
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
+  z-index: 102;
+}
+
+.wordmarkLine {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: $text-light-primary;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.wordmarkText {
+  font-family: $font-body;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: $text-light-primary;
+  white-space: nowrap;
+}
+
+// ─── Burger ───────────────────────────────────────────────────────────────
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  z-index: 102;
+
+  @include desktop {
+    display: none;
+  }
+
+  span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: $text-light-primary;
+    transition: transform $dur-feedback $ease;
+  }
+}
+
+.burgerOpen {
+  span:first-child {
+    transform: rotate(45deg) translate(2px, 2px);
+  }
+  span:last-child {
+    transform: rotate(-45deg) translate(2px, -2px);
+  }
+}
+
+// ─── Desktop Links ────────────────────────────────────────────────────────
+
+.links {
+  display: none;
+  gap: $space-6;
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.link {
+  @include mono-md;
+  color: $text-light-secondary;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color $dur-feedback $ease;
+
+  &:hover {
+    color: $text-light-primary;
+  }
+}
+
+.linkActive,
+.link:hover,
+.link:focus,
+.link:active {
+  color: $text-light-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+// ─── Desktop CTA ──────────────────────────────────────────────────────────
+
+.cta {
+  @include mono-sm;
+  background: $text-light-primary;
+  color: $bg-light;
+  padding: 11px 20px;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  @include hover-lift;
+
+  display: none;
+
+  @include desktop {
+    display: inline-block;
+  }
+}
+
+// ─── Mobile Nav Overlay ───────────────────────────────────────────────────
+
+.mobileNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  background: $surface-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-8;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform 450ms $ease,
+    visibility 0ms 450ms;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.mobileNavOpen {
+  transform: translateX(0);
+  visibility: visible;
+  transition:
+    transform 450ms $ease,
+    visibility 0ms 0ms;
+}
+
+// ─── Mobile Links ─────────────────────────────────────────────────────────
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mobileLink {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 14px 32px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition:
+    opacity 350ms $ease,
+    transform 350ms $ease;
+
+  // Background sweep on hover/active
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(201, 197, 184, 0.12);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 350ms $ease;
+  }
+
+  &:hover::before,
+  &:active::before {
+    transform: scaleX(1);
+  }
+
+  &:active::before {
+    background: rgba(201, 197, 184, 0.22);
+  }
+
+  .mobileNavOpen & {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobileLinkText {
+  position: relative;
+  z-index: 1;
+  @include mono-md;
+  font-size: 18px;
+  // font-weight: 400;
+  color: $text-light-secondary;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  transition: color $dur-feedback $ease;
+
+  .mobileLink:hover & {
+    color: $text-light-primary;
+  }
+}
+
+.mobileLinkActive {
+  &::before {
+    transform: scaleX(1);
+    background: rgba(201, 197, 184, 0.15);
+  }
+
+  .mobileLinkText {
+    color: $text-light-primary;
+  }
+}
+
+// ─── Mobile CTA ───────────────────────────────────────────────────────────
+
+.mobileCta {
+  @include mono-sm;
+  background: $text-light-primary;
+  color: $bg-light;
+  padding: 14px 28px;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 350ms $ease,
+    transform 350ms $ease,
+    background $dur-feedback $ease;
+
+  .mobileNavOpen & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:active {
+    background: $text-light-secondary;
+  }
+}

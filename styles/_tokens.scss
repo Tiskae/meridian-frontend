@@ -1,0 +1,66 @@
+// ─── COLOR — fully achromatic, light primary ───────────────────────────────
+
+$bg-light: #f6f5f2;
+$surface-light: #fbfaf7;
+$text-light-primary: #0a0a09;
+$text-light-secondary: #3f3c34;
+$text-light-muted: #706b5d;
+$border-light: rgba(201, 197, 184, 0.6);
+
+$bg-dark: #0a0a09;
+$surface-dark: #121110;
+$text-dark-primary: #f6f5f2;
+$text-dark-secondary: #c9c5b8;
+$text-dark-muted: #d1cdc0;
+$border-dark: rgba(42, 40, 34, 0.6);
+
+// NO accent color. The palette is achromatic by design.
+
+// ─── TYPE ───────────────────────────────────────────────────────────────────
+
+$font-display: "Instrument Serif", serif;
+$font-body: "Manrope", system-ui, sans-serif;
+$font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+// ─── SPACE — 4px base ──────────────────────────────────────────────────────
+
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 40px;
+$space-8: 48px;
+$space-10: 64px;
+$space-12: 80px;
+$space-14: 96px;
+$space-16: 120px;
+$space-20: 160px;
+$space-24: 200px;
+
+// ─── LAYOUT ─────────────────────────────────────────────────────────────────
+
+$max-content: 1280px;
+$max-hero: 1440px;
+$grid-gutter: 24px;
+
+$side-pad-mobile: 24px;
+$side-pad-tablet: 40px;
+$side-pad-desktop: 64px;
+$side-pad-hero: 80px;
+
+// ─── MOTION — single easing curve, locked durations ────────────────────────
+
+$ease: cubic-bezier(0.16, 1, 0.3, 1);
+$dur-feedback: 200ms;
+$dur-hover: 500ms;
+$dur-reveal: 800ms;
+$dur-gallery: 1200ms;
+$dur-kenburns: 8000ms;
+
+// ─── BREAKPOINTS ────────────────────────────────────────────────────────────
+
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1440px;

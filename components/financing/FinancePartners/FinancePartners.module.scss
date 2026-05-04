@@ -1,0 +1,38 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include container;
+  padding: 0 0 $space-12;
+  background: $bg-light;
+}
+
+.strip {
+  border-top: 1px solid rgba(201, 197, 184, 0.4);
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  padding: $space-7 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $space-5;
+}
+
+.label {
+  @include mono-sm;
+  color: $text-light-muted;
+}
+
+.partners {
+  display: flex;
+  gap: $space-10;
+  flex-wrap: wrap;
+}
+
+.partner {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: 18px;
+  color: $text-dark-secondary;
+}

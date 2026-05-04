@@ -1,0 +1,27 @@
+@use 'tokens' as *;
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.kenBurns {
+  animation: kenBurns $dur-kenburns $ease forwards;
+}
+
+.marquee {
+  animation: marqueeScroll 28s linear infinite;
+}

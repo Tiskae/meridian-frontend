@@ -1,0 +1,22 @@
+@use '../../../styles/tokens' as *;
+
+.float {
+  position: fixed;
+  bottom: $space-6;
+  right: $space-6;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: $text-light-primary;
+  color: $bg-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform $dur-hover $ease;
+  box-shadow: 0 4px 20px rgba(10, 10, 9, 0.15);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}

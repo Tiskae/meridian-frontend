@@ -1,0 +1,27 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.button {
+  @include mono-button;
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  @include hover-lift;
+}
+
+.primary {
+  background: $text-light-primary;
+  color: $bg-light;
+  border-color: $text-light-primary;
+}
+
+.secondary {
+  background: transparent;
+  color: $text-light-primary;
+  border-color: $text-light-primary;
+}

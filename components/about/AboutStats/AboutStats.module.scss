@@ -1,0 +1,46 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $surface-dark;
+  padding: $space-10 $side-pad-mobile;
+
+  @include tablet {
+    padding: $space-10 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-10 $side-pad-desktop;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat {
+  padding: $space-5 $space-6;
+
+  &[data-index]:not([data-index='0']) {
+    border-left: 1px solid $border-dark;
+  }
+}
+
+.num {
+  font-family: $font-display;
+  font-size: clamp(36px, 4vw, 56px);
+  color: $text-dark-primary;
+  margin-bottom: $space-2;
+  line-height: 1;
+}
+
+.label {
+  @include mono-xs;
+  color: $text-dark-muted;
+}

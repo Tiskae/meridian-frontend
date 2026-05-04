@@ -1,0 +1,68 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.section {
+  // background: $bg-dark;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: $space-16 $side-pad-mobile;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+
+  @include tablet {
+    padding: $space-16 $side-pad-tablet;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: $space-16 $side-pad-hero;
+  }
+}
+
+.left {
+  flex: 1;
+}
+
+.label {
+  @include mono-md;
+  color: $text-dark-muted;
+  margin-bottom: $space-5;
+}
+
+.headline {
+  font-family: $font-display;
+  font-size: clamp(28px, 5vw, 48px);
+  color: $text-dark-primary;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 520px;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  @include desktop {
+    align-items: flex-end;
+  }
+}
+
+.btnPrimary {
+  background: $text-dark-primary;
+  color: $bg-dark;
+  border-color: $text-dark-primary;
+}
+
+.btnSecondary {
+  background: transparent;
+  color: $text-dark-primary;
+  border-color: $text-dark-primary;
+}

@@ -1,0 +1,71 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: $space-8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-8;
+  align-items: start;
+  margin-bottom: $space-8;
+
+  @include desktop {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.subheadline {
+  @include display-sm;
+  color: $text-light-primary;
+  margin-bottom: $space-5;
+  line-height: 1.4;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.body {
+  @include body;
+  color: $text-light-secondary;
+  line-height: 1.7;
+  margin-bottom: $space-5;
+}
+
+.hours {
+  @include body-sm;
+  color: $text-light-muted;
+  line-height: 1.7;
+}
+
+.mainImgWrap {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+
+.stripGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-2;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.stripImg {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}

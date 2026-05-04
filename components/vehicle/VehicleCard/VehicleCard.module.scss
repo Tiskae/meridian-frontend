@@ -1,0 +1,222 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  outline: none;
+
+  @include desktop {
+    height: 300px;
+  }
+}
+
+.image {
+  object-fit: cover;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, #706b5d 0%, #3f3c34 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    @include mono-xs;
+    color: rgba(246, 245, 242, 0.3);
+  }
+}
+
+// ─── Carousel ─────────────────────────────────────────────────────────────
+
+.slideTrack {
+  display: flex;
+  height: 100%;
+  transition: transform 350ms $ease;
+  will-change: transform;
+}
+
+.slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.slideImg {
+  object-fit: cover;
+}
+
+// ─── View All Slide ───────────────────────────────────────────────────────
+
+.viewAllSlide {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 9, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+}
+
+.viewAllCount {
+  font-family: $font-display;
+  font-size: 28px;
+  color: $text-dark-primary;
+}
+
+.viewAllText {
+  @include mono-sm;
+  color: $text-dark-primary;
+}
+
+// ─── Arrows (hover-only, desktop-only) ────────────────────────────────────
+
+.arrow {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(10, 10, 9, 0.5);
+    border: 1px solid rgba(246, 245, 242, 0.15);
+    color: $text-dark-primary;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0;
+    transition:
+      opacity $dur-feedback $ease,
+      background $dur-feedback $ease;
+
+    .imageWrap:hover & {
+      opacity: 1;
+    }
+
+    &:hover {
+      background: rgba(10, 10, 9, 0.75);
+      border-color: rgba(246, 245, 242, 0.3);
+    }
+  }
+}
+
+.arrowLeft {
+  left: $space-2;
+}
+
+.arrowRight {
+  right: $space-2;
+}
+
+// ─── Dots ─────────────────────────────────────────────────────────────────
+
+.dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  background: rgba(246, 245, 242, 0.35);
+  transition: background $dur-feedback $ease;
+}
+
+.dotActive {
+  background: $text-dark-primary;
+}
+
+// ─── Card Content ─────────────────────────────────────────────────────────
+
+.stamp {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 5px;
+}
+
+.name {
+  font-family: $font-display;
+  font-size: 21px;
+  color: $text-light-primary;
+  line-height: 1.15;
+  margin-bottom: $space-2;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.price {
+  font-family: $font-mono;
+  font-size: 16px;
+  color: $text-light-secondary;
+  margin-bottom: $space-3;
+}
+
+.divider {
+  margin-bottom: 10px;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.specGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.specRow {
+  display: flex;
+  gap: $space-2;
+  @include mono-md;
+}
+
+.specKey {
+  color: $text-light-muted;
+  min-width: 68px;
+}
+
+.specSep {
+  color: $text-dark-muted;
+}
+
+.specVal {
+  color: $text-light-primary;
+}
+
+.intro {
+  @include mono-xs;
+  font-size: 8px;
+  color: $text-dark-muted;
+  max-width: 140px;
+  text-align: right;
+}

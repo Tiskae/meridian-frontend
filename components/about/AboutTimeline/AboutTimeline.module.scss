@@ -1,0 +1,34 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include container;
+  padding-bottom: $space-16;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: $space-6;
+  padding: $space-5 0;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  align-items: baseline;
+}
+
+.year {
+  font-family: $font-display;
+  font-size: 22px;
+  color: $text-light-primary;
+}
+
+.text {
+  @include body-sm;
+  color: $text-light-secondary;
+  line-height: 1.6;
+}

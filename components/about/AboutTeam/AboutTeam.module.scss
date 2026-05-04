@@ -1,0 +1,60 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: $space-8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-7;
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  // No border-radius, clean card style
+}
+
+.portraitWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: $space-5;
+}
+
+.name {
+  font-family: $font-display;
+  font-size: clamp(20px, 2vw, 24px);
+  color: $text-light-primary;
+  line-height: 1.2;
+  margin-bottom: $space-1;
+}
+
+.role {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: $space-4;
+}
+
+.cardDivider {
+  margin-bottom: $space-4;
+}
+
+.bio {
+  @include body-sm;
+  color: $text-light-secondary;
+  line-height: 1.65;
+}

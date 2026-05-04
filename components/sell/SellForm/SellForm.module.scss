@@ -1,0 +1,188 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include container;
+  padding-bottom: $space-16;
+  background: $bg-light;
+}
+
+.headerDivider {
+  margin-bottom: $space-8;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-12;
+  align-items: start;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.formSection {
+  margin-bottom: $space-8;
+}
+
+.sectionLabel {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: $space-5;
+  display: block;
+}
+
+.form2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-7 $space-10;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-light-muted;
+  }
+}
+
+.textarea {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  resize: vertical;
+  min-height: 120px;
+  border-radius: 0;
+  font-family: $font-body;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+
+  &::placeholder {
+    color: $text-light-muted;
+  }
+}
+
+.select {
+  @include body;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid $border-light;
+  background: transparent;
+  padding: 12px 0;
+  color: $text-light-primary;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+  border-radius: 0;
+
+  &:focus {
+    border-bottom-color: $text-light-primary;
+    outline: none;
+  }
+}
+
+.sectionDivider {
+  height: 1px;
+  background: rgba(201, 197, 184, 0.4);
+  margin-bottom: $space-8;
+}
+
+.submitted {
+  max-width: 560px;
+  padding: $space-8 0;
+}
+
+.submittedHead {
+  font-family: $font-display;
+  font-size: 32px;
+  margin-bottom: $space-4;
+  color: $text-light-primary;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.submittedBody {
+  @include body;
+  color: $text-light-secondary;
+  margin-bottom: $space-5;
+}
+
+.waLink {
+  @include mono-sm;
+  color: $text-light-primary;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sideImgWrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  margin-bottom: $space-5;
+}
+
+.sideTitle {
+  @include mono-xs;
+  color: $text-light-muted;
+  margin-bottom: $space-5;
+  display: block;
+}
+
+.nextSteps {
+  // Container
+}
+
+.nextStep {
+  display: flex;
+  gap: $space-3;
+  align-items: baseline;
+  padding: $space-2 0;
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+}
+
+.stepNum {
+  @include mono-xs;
+  color: $text-dark-muted;
+  flex-shrink: 0;
+}
+
+.stepText {
+  @include body-sm;
+  color: $text-light-secondary;
+}

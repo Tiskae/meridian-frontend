@@ -1,0 +1,67 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  background: $bg-light;
+  padding: $space-12 $side-pad-mobile 0;
+
+  @include tablet {
+    padding: $space-12 $side-pad-tablet 0;
+  }
+
+  @include desktop {
+    padding: $space-12 $side-pad-desktop 0;
+  }
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-4;
+}
+
+.meta {
+  @include mono-sm;
+  color: $text-light-muted;
+}
+
+.metaRight {
+  @include mono-sm;
+  color: $text-light-muted;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  align-items: end;
+  margin-top: $space-8;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.headline {
+  @include display-lg;
+  color: $text-light-primary;
+  margin-bottom: $space-5;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.body {
+  @include body;
+  color: $text-light-secondary;
+  max-width: 460px;
+}
+
+.imgWrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}

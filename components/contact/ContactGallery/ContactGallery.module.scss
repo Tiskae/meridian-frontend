@@ -1,0 +1,52 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stripImg {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 440px;
+  background: #d4d0c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.mapLabel {
+  @include mono-sm;
+  color: rgba(10, 10, 9, 0.35);
+}
+
+.mapCoord {
+  @include mono-xs;
+  color: rgba(10, 10, 9, 0.2);
+}
+
+.pin {
+  width: 12px;
+  height: 12px;
+  background: $text-light-primary;
+}
+
+.pinLine {
+  width: 1px;
+  height: 32px;
+  background: $text-light-primary;
+}

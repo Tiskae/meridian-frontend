@@ -1,0 +1,331 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.gallery {
+  padding: $space-6 $side-pad-mobile;
+  outline: none;
+
+  @include tablet {
+    padding: $space-6 $side-pad-tablet;
+  }
+
+  @include desktop {
+    padding: $space-6 $side-pad-hero;
+  }
+}
+
+.emptyGallery {
+  padding: $space-12;
+  text-align: center;
+
+  span {
+    @include mono-sm;
+    color: $text-light-muted;
+  }
+}
+
+// ─── Asymmetric Grid ───────────────────────────────────────────────────────
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 340px;
+  gap: 6px;
+
+  @include desktop {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 340px 170px;
+  }
+}
+
+.gridSingle {
+  @include desktop {
+    grid-template-columns: 1fr;
+    grid-template-rows: 500px;
+  }
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include desktop {
+    grid-row: 1 / 3;
+  }
+}
+
+.mainImg {
+  object-fit: cover;
+  transition: opacity $dur-gallery $ease;
+}
+
+.mainOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 9, 0);
+  transition: background $dur-hover $ease;
+
+  span {
+    @include mono-sm;
+    color: $text-dark-primary;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity $dur-hover $ease, transform $dur-hover $ease;
+  }
+
+  .main:hover & {
+    background: rgba(10, 10, 9, 0.2);
+
+    span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.side {
+  display: none;
+
+  @include desktop {
+    display: contents;
+  }
+}
+
+.sideItem {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color $dur-feedback $ease;
+}
+
+.sideItemActive {
+  border-color: $text-light-primary;
+}
+
+.sideImg {
+  object-fit: cover;
+}
+
+// ─── Scrollable Thumbnail Strip ────────────────────────────────────────────
+
+.thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  // Hide scrollbar but keep functionality
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.thumb {
+  position: relative;
+  flex: 0 0 80px;
+  height: 56px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color $dur-feedback $ease;
+
+  @include tablet {
+    flex: 0 0 100px;
+    height: 60px;
+  }
+
+  @include desktop {
+    flex: 0 0 120px;
+    height: 64px;
+  }
+}
+
+.thumbActive {
+  border-color: $text-light-primary;
+}
+
+.thumbImg {
+  object-fit: cover;
+}
+
+.thumbNum {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include mono-xs;
+  font-size: 7px;
+  color: rgba(246, 245, 242, 0.25);
+}
+
+// ─── Lightbox ──────────────────────────────────────────────────────────────
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 10, 9, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  animation: lbFadeIn 300ms $ease;
+}
+
+@keyframes lbFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lbClose {
+  position: absolute;
+  top: $space-5;
+  right: $space-5;
+  z-index: 202;
+  color: $text-dark-primary;
+  font-size: 32px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-2;
+  opacity: 0.6;
+  transition: opacity $dur-feedback $ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.lbCounter {
+  position: absolute;
+  top: $space-5;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 202;
+  @include mono-sm;
+  color: $text-dark-muted;
+}
+
+.lbImageWrap {
+  position: relative;
+  width: 85vw;
+  height: 75vh;
+  cursor: default;
+
+  @include desktop {
+    width: 75vw;
+    height: 80vh;
+  }
+}
+
+.lbSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 300ms $ease;
+  pointer-events: none;
+}
+
+.lbSlideActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lbImage {
+  object-fit: contain;
+}
+
+// ─── Lightbox Arrows ───────────────────────────────────────────────────────
+
+.lbArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 202;
+  background: none;
+  border: 1px solid rgba(246, 245, 242, 0.2);
+  color: $text-dark-primary;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity $dur-feedback $ease, border-color $dur-feedback $ease;
+
+  &:hover {
+    opacity: 1;
+    border-color: rgba(246, 245, 242, 0.5);
+  }
+}
+
+.lbArrowLeft {
+  left: $space-4;
+
+  @include desktop {
+    left: $space-6;
+  }
+}
+
+.lbArrowRight {
+  right: $space-4;
+
+  @include desktop {
+    right: $space-6;
+  }
+}
+
+// ─── Lightbox Dots ─────────────────────────────────────────────────────────
+
+.lbDots {
+  position: absolute;
+  bottom: $space-6;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 202;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lbDot {
+  width: 8px;
+  height: 8px;
+  background: rgba(246, 245, 242, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background $dur-feedback $ease;
+
+  &:hover {
+    background: rgba(246, 245, 242, 0.5);
+  }
+}
+
+.lbDotActive {
+  background: $text-dark-primary;
+
+  &:hover {
+    background: $text-dark-primary;
+  }
+}

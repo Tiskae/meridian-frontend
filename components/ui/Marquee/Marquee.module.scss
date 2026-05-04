@@ -1,0 +1,25 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/motion';
+
+.wrapper {
+  background: $bg-light;
+  border-top: 1px solid rgba(201, 197, 184, 0.4);
+  border-bottom: 1px solid rgba(201, 197, 184, 0.4);
+  overflow: hidden;
+  padding: 22px 0;
+}
+
+.track {
+  display: flex;
+  gap: 56px;
+  white-space: nowrap;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.item {
+  font-family: $font-display;
+  font-style: italic;
+  font-size: 22px;
+  color: rgba(201, 197, 184, 1);
+  flex-shrink: 0;
+}

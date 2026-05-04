@@ -1,0 +1,77 @@
+@use '../../../styles/tokens' as *;
+@use '../../../styles/typography' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  @include section-pad;
+  @include container;
+  background: $bg-light;
+}
+
+.sectionLabel {
+  @include mono-sm;
+  color: $text-light-muted;
+  margin-bottom: $space-5;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+
+  @include desktop {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.p1 {
+  @include display-md;
+  color: $text-light-primary;
+  margin-bottom: $space-6;
+  line-height: 1.35;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.p2 {
+  @include display-md;
+  color: $text-light-secondary;
+  margin-bottom: $space-6;
+  line-height: 1.35;
+
+  em {
+    font-style: italic;
+  }
+}
+
+.p3 {
+  @include body;
+  color: $text-light-muted;
+  max-width: 480px;
+}
+
+.imageStack {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.mainImg {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.subGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-2;
+}
+
+.subImg {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}

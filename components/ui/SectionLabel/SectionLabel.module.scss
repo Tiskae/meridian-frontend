@@ -1,0 +1,35 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: $space-4;
+}
+
+.label {
+  @include mono-md;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-light-primary;
+}
+
+.right {
+  font-size: 13px;
+  color: $text-light-primary;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dark {
+  .label {
+    color: $text-dark-muted;
+  }
+
+  .right {
+    color: $text-dark-muted;
+    text-decoration: none;
+  }
+}
