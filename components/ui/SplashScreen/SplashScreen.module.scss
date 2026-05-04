@@ -1,0 +1,88 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
+
+// ─── Overlay ───────────────────────────────────────────────────────────────
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: $bg-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // Curtain lifts: needs overflow hidden on parent so the y: -100% exit is clean
+  overflow: hidden;
+
+  display: flex !important;
+}
+
+.inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-5;
+}
+
+// ─── Hairline ──────────────────────────────────────────────────────────────
+
+.lineWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.line {
+  width: 48px;
+  height: 1.2px;
+  background: rgba(10, 10, 9, 0.8);
+  transform-origin: center center;
+}
+
+// ─── Wordmark ──────────────────────────────────────────────────────────────
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+}
+
+.word1 {
+  display: flex;
+  font-size: clamp(42px, 9vw, 70px);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: $text-light-primary;
+  line-height: 1;
+}
+
+.word2 {
+  display: flex;
+  font-family: $font-mono;
+  font-size: clamp(18px, 1.3vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.55em;
+  color: $text-light-secondary;
+  line-height: 1;
+  // initial letter-spacing set by GSAP; this is the resting value
+}
+
+.char {
+  display: inline-block;
+  // Prevent layout collapse on blur animation
+  will-change: transform, opacity, filter;
+}
+
+// ─── Tagline ───────────────────────────────────────────────────────────────
+
+.tagline {
+  font-family: $font-mono;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: $text-light-secondary;
+  opacity: 0; // GSAP owns this
+  text-transform: uppercase;
+}
