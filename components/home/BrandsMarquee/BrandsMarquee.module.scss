@@ -22,6 +22,10 @@
   gap: 64px;
   width: max-content;
   animation: marqueeScrollLogos 100s linear infinite;
+
+  @media screen and (max-width: 1000px) {
+    animation-duration: 70s;
+  }
 }
 
 .logoWrap {
@@ -44,4 +48,9 @@
   max-width: 150px;
   object-fit: contain;
   // filter: grayscale(100%);
+
+  @media screen and (max-width: 1000px) {
+    height: 40px;
+    max-width: 85px;
+  }
 }

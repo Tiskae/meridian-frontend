@@ -1,9 +1,10 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   background: $bg-dark;
+  background-color: #000000e6;
   padding: $space-12 $side-pad-mobile;
   margin-top: $space-12;
 

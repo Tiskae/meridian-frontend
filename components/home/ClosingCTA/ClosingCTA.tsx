@@ -62,17 +62,10 @@ export default function ClosingCTA() {
       </div>
 
       <div className={styles.right} data-cta-right>
-        <Button as="a" href="/contact" className={styles.btnPrimary}>
+        <Button as="a" href="/contact" variant="white">
           Book a Private Viewing
         </Button>
-        <Button
-          as="a"
-          href={buildWhatsAppUrl()}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="secondary"
-          className={styles.btnSecondary}
-        >
+        <Button as="a" href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" variant="white_outline">
           Enquire on WhatsApp
         </Button>
       </div>

@@ -1,11 +1,12 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   @include section-pad;
   @include container;
   background: $bg-light;
+  background-color: #e5e5e5;
 }
 
 .headerDivider {
@@ -24,15 +25,21 @@
 
 .card {
   // No border-radius, clean card style
+  text-align: center;
 }
 
 .portraitWrap {
   position: relative;
   width: 100%;
+  max-width: 400;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: $space-5;
+  margin: 0 auto $space-5;
+
+  @media screen and (max-width: 500px) {
+    width: 55vw;
+  }
 }
 
 .name {
@@ -44,7 +51,7 @@
 }
 
 .role {
-  @include mono-xs;
+  @include mono-md;
   color: $text-light-muted;
   margin-bottom: $space-4;
 }

@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './AboutStats.module.scss';
+import { useRef, useEffect } from "react";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./AboutStats.module.scss";
 
 const STATS = [
-  { num: '120+', label: 'Vehicles presented since 2018' },
-  { num: '₦18B', label: 'In total transaction value' },
-  { num: '94%', label: 'Client return rate' },
-  { num: '6', label: 'Days average time to delivery' },
+  { num: "120+", label: "Vehicles sold since 2018" },
+  { num: "₦56B", label: "In total transaction value" },
+  { num: "94%", label: "Client return rate" },
+  { num: "2", label: "Days average time to delivery" },
 ];
 
 export default function AboutStats() {
@@ -19,7 +19,7 @@ export default function AboutStats() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-stat]',
+        "[data-stat]",
         { opacity: 0, y: 20 },
         {
           opacity: 1,
@@ -29,7 +29,7 @@ export default function AboutStats() {
           stagger: 0.1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },

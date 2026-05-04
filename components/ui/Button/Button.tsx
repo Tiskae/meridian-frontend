@@ -4,7 +4,7 @@ import styles from "./Button.module.scss";
 import Link from "next/link";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "white" | "white_outline";
   as?: "button" | "a";
   href?: string;
   target?: string;

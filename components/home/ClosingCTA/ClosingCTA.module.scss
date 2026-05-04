@@ -54,15 +54,3 @@
     align-items: flex-end;
   }
 }
-
-.btnPrimary {
-  background: $text-dark-primary;
-  color: $bg-dark;
-  border-color: $text-dark-primary;
-}
-
-.btnSecondary {
-  background: transparent;
-  color: $text-dark-primary;
-  border-color: $text-dark-primary;
-}

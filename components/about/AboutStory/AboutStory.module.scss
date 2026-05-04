@@ -1,6 +1,6 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   @include section-pad;
@@ -9,7 +9,7 @@
 }
 
 .sectionLabel {
-  @include mono-sm;
+  @include mono-md;
   color: $text-light-muted;
   margin-bottom: $space-5;
 }
@@ -25,7 +25,8 @@
 }
 
 .p1 {
-  @include display-md;
+  @include display-sm;
+  font-size: clamp(18px, 2.5vw, 26px);
   color: $text-light-primary;
   margin-bottom: $space-6;
   line-height: 1.35;
@@ -36,7 +37,8 @@
 }
 
 .p2 {
-  @include display-md;
+  @include display-sm;
+  font-size: clamp(18px, 2.5vw, 26px);
   color: $text-light-secondary;
   margin-bottom: $space-6;
   line-height: 1.35;
@@ -47,7 +49,8 @@
 }
 
 .p3 {
-  @include body;
+  @include display-sm;
+  font-size: clamp(18px, 2.5vw, 26px);
   color: $text-light-muted;
   max-width: 480px;
 }

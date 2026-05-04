@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import Button from '@/components/ui/Button/Button';
-import Hairline from '@/components/ui/Hairline/Hairline';
-import { buildWhatsAppUrl } from '@/lib/whatsapp';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './FAQHero.module.scss';
+import { useRef, useEffect } from "react";
+import Button from "@/components/ui/Button/Button";
+import Hairline from "@/components/ui/Hairline/Hairline";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./FAQHero.module.scss";
 
 export default function FAQHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -15,7 +15,7 @@ export default function FAQHero() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-fh-header]',
+        "[data-fh-header]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -24,14 +24,14 @@ export default function FAQHero() {
           ease: EASE,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
       );
 
       gsap.fromTo(
-        '[data-fh-content]',
+        "[data-fh-content]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -41,7 +41,7 @@ export default function FAQHero() {
           stagger: 0.15,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
@@ -53,13 +53,13 @@ export default function FAQHero() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
-      <div data-fh-header>
+      {/* <div data-fh-header>
         <div className={styles.metaRow}>
           <span className={styles.meta}>— Frequently Asked Questions</span>
           <span className={styles.metaRight}>13 questions answered</span>
         </div>
         <Hairline />
-      </div>
+      </div> */}
 
       <div className={styles.grid}>
         <div data-fh-content>
@@ -68,16 +68,18 @@ export default function FAQHero() {
             to <em>know</em>.
           </h1>
           <p className={styles.body}>
-            We have answered the questions we hear most often. If yours is not here, we are always available on WhatsApp or by appointment at the showroom.
+            We have answered the questions we hear most often. If yours is not here, we are always available on WhatsApp
+            or by appointment at the showroom.
           </p>
         </div>
 
         <div className={styles.actions} data-fh-content>
           <Button
             as="a"
-            href={buildWhatsAppUrl('Hello, I have a question about Meridian Motors.')}
+            href={buildWhatsAppUrl("Hello, I have a question about Meridian Motors.")}
             target="_blank"
             rel="noopener noreferrer"
+            variant="secondary"
           >
             Ask on WhatsApp
           </Button>

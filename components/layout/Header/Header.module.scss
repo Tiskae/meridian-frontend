@@ -69,7 +69,7 @@
   padding: 8px;
   z-index: 102;
 
-  @include desktop {
+  @media screen and (min-width: 1200px) {
     display: none;
   }
 
@@ -97,7 +97,7 @@
   display: none;
   gap: $space-6;
 
-  @include desktop {
+  @media screen and (min-width: 1200px) {
     display: flex;
   }
 }
@@ -137,7 +137,7 @@
 
   display: none;
 
-  @include desktop {
+  @media screen and (min-width: 1200px) {
     display: inline-block;
   }
 }
@@ -164,7 +164,7 @@
     transform 450ms $ease,
     visibility 0ms 450ms;
 
-  @include desktop {
+  @media screen and (min-width: 1200px) {
     display: none;
   }
 }
