@@ -1,6 +1,6 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   background: $bg-dark;
@@ -54,21 +54,21 @@
   border-top: 1px solid $border-dark;
 
   @include desktop {
-    &[data-index='1'],
-    &[data-index='3'] {
+    &[data-index="1"],
+    &[data-index="3"] {
       border-left: 1px solid $border-dark;
       padding-left: $space-8;
     }
 
-    &[data-index='0'],
-    &[data-index='2'] {
+    &[data-index="0"],
+    &[data-index="2"] {
       padding-right: $space-8;
     }
   }
 }
 
 .cardNum {
-  @include mono-sm;
+  @include mono-md;
   color: $text-dark-muted;
   margin-bottom: $space-3;
 }

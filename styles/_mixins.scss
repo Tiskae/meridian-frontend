@@ -63,12 +63,12 @@
 }
 
 @mixin section-pad {
-  padding-top: $space-12;
-  padding-bottom: $space-12;
+  padding-top: $space-6;
+  padding-bottom: $space-6;
 
   @include desktop {
-    padding-top: $space-16;
-    padding-bottom: $space-16;
+    padding-top: $space-14;
+    padding-bottom: $space-14;
   }
 }
 
