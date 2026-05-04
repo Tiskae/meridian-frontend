@@ -1,18 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { buildWhatsAppUrl } from '@/lib/whatsapp';
-import styles from './Header.module.scss';
-import clsx from 'clsx';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import styles from "./Header.module.scss";
+import clsx from "clsx";
 
 const NAV_LINKS = [
-  { href: '/inventory', label: 'Inventory' },
-  { href: '/about', label: 'About' },
-  { href: '/financing', label: 'Financing' },
-  { href: '/sell', label: 'Sell Your Car' },
-  { href: '/contact', label: 'Contact' },
+  { href: "/", label: "Home" },
+  { href: "/inventory", label: "Inventory" },
+  { href: "/about", label: "About" },
+  { href: "/financing", label: "Financing" },
+  { href: "/sell", label: "Sell Your Car" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -22,8 +23,8 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -33,11 +34,13 @@ export default function Header() {
   // Lock body scroll when mobile nav open
   useEffect(() => {
     if (mobileOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileOpen]);
 
   return (
@@ -62,10 +65,7 @@ export default function Header() {
           <Link
             key={link.href}
             href={link.href}
-            className={clsx(
-              styles.link,
-              pathname === link.href && styles.linkActive,
-            )}
+            className={clsx(styles.link, pathname === link.href && styles.linkActive)}
           >
             {link.label}
           </Link>
@@ -79,11 +79,8 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={clsx(
-                styles.mobileLink,
-                pathname === link.href && styles.mobileLinkActive,
-              )}
-              style={{ transitionDelay: mobileOpen ? `${80 + i * 50}ms` : '0ms' }}
+              className={clsx(styles.mobileLink, pathname === link.href && styles.mobileLinkActive)}
+              style={{ transitionDelay: mobileOpen ? `${80 + i * 50}ms` : "0ms" }}
             >
               <span className={styles.mobileLinkText}>{link.label}</span>
             </Link>
@@ -95,18 +92,13 @@ export default function Header() {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.mobileCta}
-          style={{ transitionDelay: mobileOpen ? `${80 + NAV_LINKS.length * 50}ms` : '0ms' }}
+          style={{ transitionDelay: mobileOpen ? `${80 + NAV_LINKS.length * 50}ms` : "0ms" }}
         >
           Enquire on WhatsApp
         </a>
       </div>
 
-      <a
-        href={buildWhatsAppUrl()}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={styles.cta}
-      >
+      <a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className={styles.cta}>
         Enquire on WhatsApp
       </a>
     </nav>
