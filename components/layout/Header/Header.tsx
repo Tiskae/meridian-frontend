@@ -12,7 +12,8 @@ const NAV_LINKS = [
   { href: "/inventory", label: "Inventory" },
   { href: "/about", label: "About" },
   { href: "/financing", label: "Financing" },
-  { href: "/sell", label: "Sell Your Car" },
+  { href: "/faqs", label: "FAQs" },
+  // { href: "/sell", label: "Sell Your Car" },
   { href: "/contact", label: "Contact" },
 ];
 

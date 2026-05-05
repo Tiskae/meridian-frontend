@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import Image from 'next/image';
-import Hairline from '@/components/ui/Hairline/Hairline';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './SellHero.module.scss';
+import { useRef, useEffect } from "react";
+import Image from "next/image";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./SellHero.module.scss";
 
 export default function SellHero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -14,7 +13,7 @@ export default function SellHero() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-sh-header]',
+        "[data-sh-header]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -23,14 +22,14 @@ export default function SellHero() {
           ease: EASE,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
       );
 
       gsap.fromTo(
-        '[data-sh-left]',
+        "[data-sh-left]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -40,14 +39,14 @@ export default function SellHero() {
           delay: 0.15,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
       );
 
       gsap.fromTo(
-        '[data-sh-right]',
+        "[data-sh-right]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -57,7 +56,7 @@ export default function SellHero() {
           delay: 0.3,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
@@ -69,22 +68,24 @@ export default function SellHero() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
-      <div data-sh-header>
+      {/* <div data-sh-header>
         <div className={styles.metaRow}>
           <span className={styles.meta}>— Sell Your Car</span>
           <span className={styles.metaRight}>Consignment & Acquisition</span>
         </div>
         <Hairline />
-      </div>
+      </div> */}
 
       <div className={styles.grid}>
         <div data-sh-left>
           <h1 className={styles.headline}>
-            Present your car to<br />
+            Present your car to
+            <br />
             the right <em>audience</em>.
           </h1>
           <p className={styles.body}>
-            The Meridian client base is curated. When your vehicle is listed with us, it is seen by buyers who are ready, qualified, and serious. We handle photography, documentation, viewings, and negotiation.
+            The Meridian client base is curated. When your vehicle is listed with us, it is seen by buyers who are
+            ready, qualified, and serious. We handle photography, documentation, viewings, and negotiation.
           </p>
 
           <div className={styles.stats}>
@@ -106,7 +107,7 @@ export default function SellHero() {
             alt="Prestige vehicle presented for sale at Meridian Motors"
             fill
             sizes="(max-width: 1024px) 100vw, 42vw"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
           />
         </div>
       </div>
