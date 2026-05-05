@@ -7,10 +7,27 @@ import AboutTimeline from "@/components/about/AboutTimeline/AboutTimeline";
 import AboutTeam from "@/components/about/AboutTeam/AboutTeam";
 import ClosingCTA from "@/components/home/ClosingCTA/ClosingCTA";
 
-export const metadata = {
-  title: "About — Meridian Motors",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us: Meridian Motors",
   description:
-    "Meridian Motors is a curated luxury car dealership on Victoria Island, Lagos. Founded in 2018 on principles of selectivity, independence, transparency, and patience.",
+    "Meridian Motors is a curated luxury car dealership on Victoria Island, Lagos. Founded in 2018 on principles of selectivity, independence, and transparency, we present only vehicles that meet our exacting standard.",
+  keywords: [
+    "about Meridian Motors",
+    "luxury car dealership Lagos history",
+    "Victoria Island car showroom",
+    "premium car dealership Nigeria",
+    "trusted car dealer Lagos",
+  ],
+  alternates: { canonical: "https://meridian.tiskae.dev/about" },
+  openGraph: {
+    title: "About Us: Meridian Motors",
+    description:
+      "Founded in 2018 on Victoria Island, Lagos. A curated luxury car dealership built on selectivity, independence, and transparency.",
+    url: "https://meridian.tiskae.dev/about",
+    type: "website",
+  },
 };
 
 export default function AboutPage() {

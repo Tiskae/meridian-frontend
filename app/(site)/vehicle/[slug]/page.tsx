@@ -29,20 +29,36 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const vehicle = await client.fetch<SanityVehicle | null>(vehicleBySlugQuery, {
-    slug,
-  });
+  const vehicle = await client.fetch<SanityVehicle | null>(vehicleBySlugQuery, { slug });
 
   if (!vehicle) {
-    return { title: "Vehicle Not Found — Meridian Motors" };
+    return { title: "Vehicle Not Found" };
   }
 
   const name = `${vehicle.make.name} ${vehicle.model}${vehicle.trim ? ` ${vehicle.trim}` : ""}`;
+  const fullTitle = `${vehicle.year} ${name}: Meridian Motors`;
+  const description =
+    vehicle.shortIntro ||
+    `${vehicle.year} ${name} in ${vehicle.condition} condition. ${vehicle.mileage ? `${vehicle.mileage.toLocaleString()} ${vehicle.mileageUnit || "km"}.` : ""} Priced at ${formatPrice(vehicle.price, vehicle.currency)}. Available now at Meridian Motors, Victoria Island, Lagos.`;
+
   return {
-    title: `${vehicle.year} ${name} — Meridian Motors`,
-    description:
-      vehicle.shortIntro ||
-      `${vehicle.year} ${name} — ${formatPrice(vehicle.price, vehicle.currency)}. Available at Meridian Motors, Lagos.`,
+    title: fullTitle,
+    description,
+    keywords: [
+      `${name} for sale Lagos`,
+      `${vehicle.year} ${name}`,
+      `${vehicle.make.name} for sale Nigeria`,
+      `buy ${vehicle.make.name} Lagos`,
+      "luxury cars Lagos",
+      "Meridian Motors",
+    ],
+    alternates: { canonical: `https://meridian.tiskae.dev/vehicle/${slug}` },
+    openGraph: {
+      title: `${fullTitle}: Meridian Motors`,
+      description,
+      url: `https://meridian.tiskae.dev/vehicle/${slug}`,
+      type: "website",
+    },
   };
 }
 
@@ -58,8 +74,46 @@ export default async function VehicleDetailPage({ params }: PageProps) {
   const vehicleName = `${vehicle.make.name} ${vehicle.model}${vehicle.trim ? ` ${vehicle.trim}` : ""}`;
   const whatsappUrl = buildVehicleWhatsAppUrl(vehicle.make.name, vehicle.model, vehicle.year);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Car",
+    name: vehicleName,
+    brand: { "@type": "Brand", name: vehicle.make.name },
+    model: vehicle.model,
+    vehicleModelDate: String(vehicle.year),
+    mileageFromOdometer: vehicle.mileage
+      ? {
+          "@type": "QuantitativeValue",
+          value: vehicle.mileage,
+          unitCode: vehicle.mileageUnit === "miles" ? "SMI" : "KMT",
+        }
+      : undefined,
+    itemCondition:
+      vehicle.condition === "Brand New" ? "https://schema.org/NewCondition" : "https://schema.org/UsedCondition",
+    offers: {
+      "@type": "Offer",
+      priceCurrency: vehicle.currency || "NGN",
+      price: vehicle.price,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "AutoDealer",
+        name: "Meridian Motors",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "No. 4 Kofo Abayomi Street",
+          addressLocality: "Victoria Island",
+          addressRegion: "Lagos",
+          addressCountry: "NG",
+        },
+      },
+    },
+    description:
+      vehicle.shortIntro || `${vehicle.year} ${vehicleName} available at Meridian Motors, Victoria Island, Lagos.`,
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Header strip */}
       <div className={styles.header}>
         <div className={styles.headerLeft}>

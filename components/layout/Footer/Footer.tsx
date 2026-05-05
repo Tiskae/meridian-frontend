@@ -18,9 +18,10 @@ const COLUMNS: { heading: string; items: FooterItem[] }[] = [
   {
     heading: "Collection",
     items: [
+      { label: "Home", href: "/" },
       { label: "Inventory", href: "/inventory" },
       { label: "Financing", href: "/financing" },
-      { label: "Sell Your Car", href: "/sell" },
+      // { label: "Sell Your Car", href: "/sell" },
       { label: "FAQs", href: "/faqs" },
     ],
   },

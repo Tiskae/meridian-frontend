@@ -7,9 +7,30 @@ import styles from "./inventory.module.scss";
 
 export const revalidate = 60;
 
-export const metadata = {
-  title: "Inventory — Meridian Motors",
-  description: "Browse our considered collection of pre-owned luxury automobiles in Lagos.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Collection: Meridian Motors",
+  description:
+    "Browse Meridian Motors' considered collection of brand new and clean foreign-used luxury vehicles in Lagos. Filter by make, body type, and price. Every car sourced, inspected, and presented with singular intention.",
+  keywords: [
+    "luxury cars for sale Lagos",
+    "buy foreign used car Lagos",
+    "premium SUV Lagos",
+    "clean used luxury cars Nigeria",
+    "Bentley for sale Lagos",
+    "Porsche for sale Lagos",
+    "Range Rover for sale Lagos",
+    "Mercedes for sale Lagos",
+  ],
+  alternates: { canonical: "https://meridian.tiskae.dev/inventory" },
+  openGraph: {
+    title: "Our Collection: Meridian Motors",
+    description:
+      "Brand new and clean foreign-used luxury vehicles in Lagos. Every car sourced, inspected, and presented with singular intention.",
+    url: "https://meridian.tiskae.dev/inventory",
+    type: "website",
+  },
 };
 
 export default async function InventoryPage() {
