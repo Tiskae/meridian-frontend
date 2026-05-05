@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import SectionLabel from '@/components/ui/SectionLabel/SectionLabel';
-import Hairline from '@/components/ui/Hairline/Hairline';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './FinanceProcess.module.scss';
+import { useRef, useEffect } from "react";
+import SectionLabel from "@/components/ui/SectionLabel/SectionLabel";
+import Hairline from "@/components/ui/Hairline/Hairline";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./FinanceProcess.module.scss";
 
 const STEPS = [
   {
-    num: '— 01',
-    title: 'Estimate',
-    body: 'Use the calculator to get an indicative monthly figure. This is not a commitment — just a starting point for conversation.',
+    num: "— 01",
+    title: "Estimate",
+    body: "Use the calculator to get an indicative monthly figure. This is not a commitment, it is just a starting point for conversation.",
   },
   {
-    num: '— 02',
-    title: 'Apply',
-    body: 'Submit the enquiry form below. Our team connects you with the most suitable partner institution based on your profile and preferred terms.',
+    num: "— 02",
+    title: "Apply",
+    body: "Submit the enquiry form above. Our team connects you with the most suitable partner institution based on your profile and preferred terms.",
   },
   {
-    num: '— 03',
-    title: 'Approve',
-    body: 'Pre-approval typically takes 3–5 business days. We handle all coordination between you and the finance partner — no paperwork on your end until signing.',
+    num: "— 03",
+    title: "Approve",
+    body: "Pre-approval typically takes 3-5 business days. We handle all coordination between you and the finance partner. No paperwork on your end until signing.",
   },
   {
-    num: '— 04',
-    title: 'Drive',
-    body: 'Once approved, we arrange handover at the showroom. Documentation, registration, and insurance are finalised before you leave with the keys.',
+    num: "— 04",
+    title: "Drive",
+    body: "Once approved, we arrange handover at the showroom. Documentation, registration, and insurance are finalised before you leave with the keys.",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function FinanceProcess() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-fp-header]',
+        "[data-fp-header]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -46,14 +46,14 @@ export default function FinanceProcess() {
           ease: EASE,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 85%',
+            start: "top 85%",
             once: true,
           },
         },
       );
 
       gsap.fromTo(
-        '[data-fp-step]',
+        "[data-fp-step]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -63,7 +63,7 @@ export default function FinanceProcess() {
           stagger: 0.15,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 75%',
+            start: "top 75%",
             once: true,
           },
         },
@@ -82,12 +82,7 @@ export default function FinanceProcess() {
 
       <div className={styles.grid}>
         {STEPS.map((step, i) => (
-          <div
-            key={step.num}
-            className={styles.step}
-            data-fp-step
-            data-index={i}
-          >
+          <div key={step.num} className={styles.step} data-fp-step data-index={i}>
             <div className={styles.stepNum}>{step.num}</div>
             <div className={styles.stepTitle}>
               <em>{step.title}</em>

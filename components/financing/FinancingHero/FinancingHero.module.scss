@@ -1,17 +1,17 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   background: $bg-light;
-  padding: $space-12 $side-pad-mobile 0;
+  padding: $space-6 $side-pad-mobile 0;
 
   @include tablet {
-    padding: $space-12 $side-pad-tablet 0;
+    padding: $space-6 $side-pad-tablet 0;
   }
 
   @include desktop {
-    padding: $space-12 $side-pad-desktop 0;
+    padding: $space-6 $side-pad-desktop 0;
   }
 }
 
@@ -36,11 +36,11 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: $space-10;
-  align-items: end;
+  align-items: center;
   margin-top: $space-8;
 
   @include desktop {
-    grid-template-columns: 7fr 5fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -62,6 +62,10 @@
 
 .imgWrap {
   position: relative;
-  height: 360px;
+  height: 400px;
   overflow: hidden;
+
+  @media screen and (max-width: 500px) {
+    height: 250px;
+  }
 }

@@ -89,7 +89,7 @@ export default function ContactDirections() {
       <div className={styles.strip}>
         {STRIP_IMAGES.map((img, i) => (
           <div key={i} className={styles.stripImg} data-cg-img>
-            <Image src={img.src} alt={img.alt} fill sizes="25vw" style={{ objectFit: "cover" }} />
+            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1023px) 100vw, 33vw" style={{ objectFit: "cover" }} />
           </div>
         ))}
       </div>

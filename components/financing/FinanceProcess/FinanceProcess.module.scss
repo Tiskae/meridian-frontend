@@ -1,6 +1,6 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   padding: $space-14 $side-pad-mobile;
@@ -34,21 +34,21 @@
   border-top: 1px solid $border-dark;
 
   @include tablet {
-    &[data-index='1'],
-    &[data-index='3'] {
+    &[data-index="1"],
+    &[data-index="3"] {
       padding-left: $space-8;
       border-left: 1px solid $border-dark;
     }
 
-    &[data-index='0'],
-    &[data-index='2'] {
+    &[data-index="0"],
+    &[data-index="2"] {
       padding-right: $space-8;
     }
   }
 }
 
 .stepNum {
-  @include mono-sm;
+  @include mono-md;
   color: $text-dark-muted;
   margin-bottom: $space-3;
 }

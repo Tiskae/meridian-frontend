@@ -303,7 +303,7 @@ export default function SellForm() {
                 src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80&fit=crop&auto=format"
                 alt="Vehicle keys and documentation, representing the Meridian consignment process"
                 fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
+                sizes="(max-width: 1023px) 100vw, 42vw"
                 style={{ objectFit: 'cover' }}
               />
             </div>

@@ -110,7 +110,7 @@ export default function SellProof() {
                 src={car.image}
                 alt={car.alt}
                 fill
-                sizes="(max-width: 1024px) 100vw, 33vw"
+                sizes="(max-width: 1023px) 100vw, 33vw"
                 style={{ objectFit: 'cover' }}
               />
             </div>

@@ -48,6 +48,10 @@
   color: $text-light-primary;
   margin-bottom: 10px;
   display: block;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: $space-4;
+  }
 }
 
 .infoValue {
@@ -108,6 +112,10 @@
   grid-template-columns: 1fr 1fr;
   gap: $space-5 $space-7;
   margin-top: $space-5;
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .fieldFull {
@@ -152,6 +160,10 @@
   min-height: 140px;
   border-radius: 0;
   font-family: $font-body;
+
+  @media screen and (max-width: 500px) {
+    min-height: 50px;
+  }
 
   &:focus {
     border-bottom-color: $text-light-primary;

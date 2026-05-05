@@ -1,11 +1,19 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   @include section-pad;
   @include container;
-  background: $bg-light;
+  background: #fff;
+  max-width: none;
+  padding-top: $space-5;
+  margin-top: $space-5;
+
+  @include desktop {
+    padding-top: $space-10;
+    margin-top: $space-10;
+  }
 }
 
 .headerDivider {
@@ -24,7 +32,7 @@
 }
 
 .sliderRow {
-  margin-bottom: $space-7;
+  margin-bottom: $space-6;
 }
 
 .sliderMeta {
@@ -34,12 +42,13 @@
 }
 
 .sliderLabel {
-  @include mono-xs;
+  @include mono-md;
   color: $text-light-muted;
+  font-weight: 500;
 }
 
 .sliderValue {
-  @include mono-sm;
+  @include mono-md;
   color: $text-light-primary;
 }
 
@@ -73,32 +82,32 @@
 }
 
 .resultDivider {
-  border-top: 1px solid $border-light;
-  padding-top: $space-7;
-  margin-top: $space-7;
+  // border-top: 1px solid $border-light;
+  padding-top: $space-5;
+  margin-top: $space-5;
 }
 
 .resultLabel {
-  @include mono-xs;
+  @include mono-md;
   color: $text-light-muted;
   margin-bottom: 6px;
 }
 
 .resultAmount {
-  @include display-lg;
+  @include display-sm;
   color: $text-light-primary;
   margin-bottom: $space-2;
 }
 
 .resultMeta {
-  @include mono-xs;
-  color: $text-dark-muted;
+  @include mono-md;
+  color: $text-light-muted;
   margin-bottom: $space-5;
 }
 
 .breakdown {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   border-top: 1px solid $border-light;
 }
 
@@ -108,8 +117,8 @@
 }
 
 .breakLabel {
-  @include mono-xs;
-  color: $text-dark-muted;
+  @include mono-md;
+  color: $text-light-muted;
   margin-bottom: $space-1;
 }
 
@@ -117,6 +126,7 @@
   font-family: $font-display;
   font-size: 18px;
   color: $text-light-primary;
+  letter-spacing: 7%;
 }
 
 .imgWrap {
@@ -127,9 +137,10 @@
 }
 
 .formLabel {
-  @include mono-xs;
-  color: $text-light-muted;
-  margin-bottom: $space-5;
+  @include mono-md;
+  color: $text-light-primary;
+  font-weight: 500;
+  margin-bottom: $space-6;
   display: block;
 }
 
@@ -137,6 +148,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $space-5 $space-7;
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .fieldFull {
@@ -144,19 +159,19 @@
 }
 
 .label {
-  @include mono-xs;
-  color: $text-light-muted;
+  @include mono-md;
+  color: $text-light-secondary;
   margin-bottom: 6px;
   display: block;
 }
 
 .input {
-  @include body;
+  @include body-sm;
   width: 100%;
   border: none;
   border-bottom: 1px solid $border-light;
-  background: transparent;
-  padding: 12px 0;
+  background: $bg-light;
+  padding: 10px;
   color: $text-light-primary;
   outline: none;
   border-radius: 0;
@@ -191,6 +206,6 @@
 }
 
 .submittedBody {
-  @include body-sm;
+  @include body;
   color: $text-light-secondary;
 }

@@ -208,7 +208,7 @@ export default function VehicleGallery({ images: rawImages, vehicleName }: Vehic
                       src={urls[realIdx].side}
                       alt={img.alt || `${vehicleName} — ${realIdx + 1}`}
                       fill
-                      sizes="(max-width: 1024px) 50vw, 33vw"
+                      sizes="33vw"
                       className={styles.sideImg}
                     />
                   </div>
@@ -234,7 +234,7 @@ export default function VehicleGallery({ images: rawImages, vehicleName }: Vehic
                   src={urls[i].thumb}
                   alt={img.alt || `Thumbnail ${i + 1}`}
                   fill
-                  sizes="10vw"
+                  sizes="(max-width: 767px) 80px, (max-width: 1023px) 100px, 120px"
                   className={styles.thumbImg}
                 />
                 <span className={styles.thumbNum}>{i + 1}</span>
@@ -299,7 +299,7 @@ export default function VehicleGallery({ images: rawImages, vehicleName }: Vehic
                     src={urls[i].full}
                     alt={img.alt || `${vehicleName} — ${i + 1}`}
                     fill
-                    sizes="95vw"
+                    sizes="(max-width: 1023px) 85vw, 75vw"
                     className={styles.lbImage}
                     priority={i === activeIdx}
                   />
