@@ -57,7 +57,7 @@ export default function ContactMap() {
             <svg
               width="14"
               height="14"
-              viewBox="0 0 24 24"
+              viewBox="0 0 12 12"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
@@ -65,7 +65,7 @@ export default function ContactMap() {
               strokeLinejoin="round"
               aria-hidden="true"
             >
-              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              <path d="M6.375 12c-0.027 0-0.054-0.003-0.081-0.009-0.172-0.038-0.294-0.19-0.294-0.366v-5.625h-5.625c-0.176 0-0.328-0.122-0.366-0.294s0.048-0.347 0.208-0.421l11.25-5.25c0.143-0.067 0.312-0.037 0.424 0.075s0.141 0.281 0.075 0.424l-5.25 11.25c-0.063 0.134-0.197 0.216-0.34 0.216zM2.065 5.25h4.31c0.207 0 0.375 0.168 0.375 0.375v4.31l4.099-8.784-8.784 4.099z"></path>
             </svg>
           </span>
           Get Directions
