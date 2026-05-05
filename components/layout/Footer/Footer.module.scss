@@ -26,6 +26,10 @@
     justify-content: space-between;
     gap: $space-7;
   }
+
+  @media screen and (max-width: 500px) {
+    gap: $space-3;
+  }
 }
 
 .brand {
@@ -143,7 +147,8 @@
 }
 
 @keyframes creditPulse {
-  0%, 100% {
+  0%,
+  100% {
     color: $text-dark-muted;
     text-shadow: none;
   }
@@ -157,7 +162,9 @@
   color: $text-dark-muted;
   text-decoration: none;
   animation: creditPulse 4s $ease infinite;
-  transition: color $dur-feedback $ease, text-shadow $dur-feedback $ease;
+  transition:
+    color $dur-feedback $ease,
+    text-shadow $dur-feedback $ease;
 
   &:hover {
     color: $text-dark-primary;

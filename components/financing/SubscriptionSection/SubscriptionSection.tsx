@@ -1,40 +1,40 @@
-'use client';
+"use client";
 
-import { useRef, useEffect, useState } from 'react';
-import Image from 'next/image';
-import Button from '@/components/ui/Button/Button';
-import SectionLabel from '@/components/ui/SectionLabel/SectionLabel';
-import Hairline from '@/components/ui/Hairline/Hairline';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './SubscriptionSection.module.scss';
+import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import Button from "@/components/ui/Button/Button";
+import SectionLabel from "@/components/ui/SectionLabel/SectionLabel";
+import Hairline from "@/components/ui/Hairline/Hairline";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./SubscriptionSection.module.scss";
 
 const TIERS = [
   {
-    name: 'Select',
-    price: 'From ₦3.5M / month',
-    type: 'SUVs & Saloons',
-    minimum: '12-month minimum',
-    includes: 'Insurance, maintenance, servicing, 3,000 km/month',
+    name: "Select",
+    price: "From ₦3.5M / month",
+    type: "SUVs & Saloons",
+    minimum: "12-month minimum",
+    includes: "Insurance, maintenance, servicing, 3,000 km/month",
   },
   {
-    name: 'Prestige',
-    price: 'From ₦5.5M / month',
-    type: 'Premium & Performance',
-    minimum: '6-month minimum',
-    includes: 'Insurance, maintenance, servicing, 5,000 km/month, vehicle swaps',
+    name: "Prestige",
+    price: "From ₦5.5M / month",
+    type: "Premium & Performance",
+    minimum: "6-month minimum",
+    includes: "Insurance, maintenance, servicing, 5,000 km/month, vehicle swaps",
   },
   {
-    name: 'Reserve',
-    price: 'By arrangement',
-    type: 'Exotics & Collectors',
-    minimum: 'Flexible',
-    includes: 'Fully bespoke terms, dedicated concierge, unlimited kilometres',
+    name: "Reserve",
+    price: "By arrangement",
+    type: "Exotics & Collectors",
+    minimum: "Flexible",
+    includes: "Fully bespoke terms, dedicated concierge, unlimited kilometres",
   },
 ];
 
 export default function SubscriptionSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState({ name: '', phone: '', tier: '', duration: '' });
+  const [formData, setFormData] = useState({ name: "", phone: "", tier: "", duration: "" });
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function SubscriptionSection() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-ss-left]',
+        "[data-ss-left]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -51,14 +51,14 @@ export default function SubscriptionSection() {
           ease: EASE,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: "top 80%",
             once: true,
           },
         },
       );
 
       gsap.fromTo(
-        '[data-ss-right]',
+        "[data-ss-right]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -68,7 +68,7 @@ export default function SubscriptionSection() {
           delay: 0.2,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: "top 80%",
             once: true,
           },
         },
@@ -101,15 +101,17 @@ export default function SubscriptionSection() {
             Drive without <em>ownership</em>.
           </h2>
           <p className={styles.body}>
-            The Meridian subscription gives you access to a prestige vehicle on a flexible monthly arrangement. Insurance, maintenance, and servicing are included. You choose the tier, the term, and when you want to change.
+            The Meridian subscription gives you access to a prestige vehicle on a flexible monthly arrangement.
+            Insurance, maintenance, and servicing are included. You choose the tier, the term, and when you want to
+            change.
           </p>
           <div className={styles.imgWrap}>
             <Image
-              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80&fit=crop&auto=format"
-              alt="Luxury vehicle on open road, representing Meridian subscription programme"
+              src="https://images.unsplash.com/photo-1585336261176-3e8d838e86e3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Driver in a car"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>
@@ -125,12 +127,12 @@ export default function SubscriptionSection() {
               <div className={styles.tierMeta}>
                 <div className={styles.tierMetaItem}>
                   <span className={styles.tierMetaKey}>Type</span>
-                  <span className={styles.tierMetaDash}>—</span>
+                  <span className={styles.tierMetaDash}>:</span>
                   <span className={styles.tierMetaVal}>{tier.type}</span>
                 </div>
                 <div className={styles.tierMetaItem}>
                   <span className={styles.tierMetaKey}>Minimum</span>
-                  <span className={styles.tierMetaDash}>—</span>
+                  <span className={styles.tierMetaDash}>:</span>
                   <span className={styles.tierMetaVal}>{tier.minimum}</span>
                 </div>
               </div>
@@ -140,7 +142,9 @@ export default function SubscriptionSection() {
 
           {submitted ? (
             <div className={styles.submitted}>
-              <p className={styles.submittedHead}>Enquiry <em>received</em>.</p>
+              <p className={styles.submittedHead}>
+                Enquiry <em>received</em>.
+              </p>
               <p className={styles.submittedBody}>
                 Our team will be in touch within one business day to discuss subscription options.
               </p>
@@ -149,7 +153,9 @@ export default function SubscriptionSection() {
             <form onSubmit={handleSubmit} className={styles.formWrap}>
               <div className={styles.formGrid}>
                 <div>
-                  <label className={styles.label} htmlFor="ss-name">Full Name</label>
+                  <label className={styles.label} htmlFor="ss-name">
+                    Full Name
+                  </label>
                   <input
                     id="ss-name"
                     name="name"
@@ -161,7 +167,9 @@ export default function SubscriptionSection() {
                   />
                 </div>
                 <div>
-                  <label className={styles.label} htmlFor="ss-phone">Phone</label>
+                  <label className={styles.label} htmlFor="ss-phone">
+                    Phone
+                  </label>
                   <input
                     id="ss-phone"
                     name="phone"
@@ -173,7 +181,9 @@ export default function SubscriptionSection() {
                   />
                 </div>
                 <div>
-                  <label className={styles.label} htmlFor="ss-tier">Preferred Tier</label>
+                  <label className={styles.label} htmlFor="ss-tier">
+                    Preferred Tier
+                  </label>
                   <select
                     id="ss-tier"
                     name="tier"
@@ -188,7 +198,9 @@ export default function SubscriptionSection() {
                   </select>
                 </div>
                 <div>
-                  <label className={styles.label} htmlFor="ss-duration">Duration</label>
+                  <label className={styles.label} htmlFor="ss-duration">
+                    Duration
+                  </label>
                   <select
                     id="ss-duration"
                     name="duration"
