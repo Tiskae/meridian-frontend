@@ -1,11 +1,20 @@
-@use '../../../styles/tokens' as *;
-@use '../../../styles/typography' as *;
-@use '../../../styles/mixins' as *;
+@use "../../../styles/tokens" as *;
+@use "../../../styles/typography" as *;
+@use "../../../styles/mixins" as *;
 
 .section {
   @include section-pad;
   @include container;
-  background: $bg-light;
+  max-width: none;
+  background: #fff;
+
+  padding-top: $space-5;
+  margin-top: $space-5;
+
+  @include desktop {
+    padding-top: $space-10;
+    margin-top: $space-10;
+  }
 }
 
 .grid {
@@ -19,13 +28,6 @@
   }
 }
 
-.addressName {
-  font-family: $font-display;
-  font-size: 24px;
-  color: $text-light-primary;
-  margin-bottom: $space-5;
-}
-
 .addressText {
   @include body;
   color: $text-light-secondary;
@@ -37,13 +39,14 @@
 }
 
 .infoRow {
-  margin-bottom: $space-4;
+  margin-bottom: $space-5;
 }
 
 .infoLabel {
-  @include mono-xs;
-  color: $text-light-muted;
-  margin-bottom: 6px;
+  @include mono-md;
+  font-weight: 500;
+  color: $text-light-primary;
+  margin-bottom: 10px;
   display: block;
 }
 
@@ -78,11 +81,18 @@
   justify-content: center;
   color: $text-light-muted;
   text-decoration: none;
-  transition: color $dur-feedback $ease, transform $dur-hover $ease;
+  transition:
+    color $dur-feedback $ease,
+    transform $dur-hover $ease;
 
   &:hover {
     color: $text-light-primary;
     transform: translateY(-4px);
+  }
+
+  svg {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -105,9 +115,9 @@
 }
 
 .label {
-  @include mono-xs;
+  @include mono-md;
   color: $text-light-muted;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
   display: block;
 }
 
@@ -117,7 +127,8 @@
   border: none;
   border-bottom: 1px solid $border-light;
   background: transparent;
-  padding: 12px 0;
+  background-color: #fff;
+  padding: 6px;
   color: $text-light-primary;
   outline: none;
   border-radius: 0;
@@ -133,8 +144,8 @@
   width: 100%;
   border: none;
   border-bottom: 1px solid $border-light;
-  background: transparent;
-  padding: 12px 0;
+  background: #fff;
+  padding: 12px;
   color: $text-light-primary;
   outline: none;
   resize: vertical;
@@ -169,17 +180,21 @@
 
 .responseTimes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: $space-3;
   margin-top: $space-6;
   padding-top: $space-5;
   border-top: 1px solid rgba(201, 197, 184, 0.4);
+
+  @include desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .responseRow {
   display: flex;
   gap: $space-2;
-  @include mono-xs;
+  @include mono-sm;
 }
 
 .responseChannel {
