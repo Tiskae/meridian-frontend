@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { useRef, useEffect, useState } from 'react';
-import Image from 'next/image';
-import Button from '@/components/ui/Button/Button';
-import Hairline from '@/components/ui/Hairline/Hairline';
-import { SOCIAL_LINKS } from '@/components/ui/SocialIcons/SocialIcons';
-import { buildWhatsAppUrl } from '@/lib/whatsapp';
-import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
-import styles from './ContactMain.module.scss';
+import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import Button from "@/components/ui/Button/Button";
+import Hairline from "@/components/ui/Hairline/Hairline";
+import { SOCIAL_LINKS } from "@/components/ui/SocialIcons/SocialIcons";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import styles from "./ContactMain.module.scss";
 
 export default function ContactMain() {
   const sectionRef = useRef<HTMLElement>(null);
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    enquiryType: '',
-    subject: '',
-    message: '',
+    name: "",
+    phone: "",
+    email: "",
+    enquiryType: "",
+    subject: "",
+    message: "",
   });
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function ContactMain() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-cm-reveal]',
+        "[data-cm-reveal]",
         { opacity: 0, y: 24 },
         {
           opacity: 1,
@@ -36,7 +36,7 @@ export default function ContactMain() {
           stagger: 0.15,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: "top 80%",
             once: true,
           },
         },
@@ -61,30 +61,35 @@ export default function ContactMain() {
         {/* Left — Showroom Info */}
         <div data-cm-reveal>
           <div className={styles.infoLabel}>— The Showroom</div>
-          <div className={styles.addressName}>Meridian Motors</div>
           <p className={styles.addressText}>
-            No. 4 Kofo Abayomi Street<br />
-            Victoria Island<br />
+            No. 4 Kofo Abayomi Street
+            <br />
+            Victoria Island
+            <br />
             Lagos, Nigeria
           </p>
           <Hairline className={styles.infoDivider} />
 
           <div className={styles.infoRow}>
             <span className={styles.infoLabel}>Hours</span>
-            <span className={styles.infoValue}>Mon–Fri: 10:00–18:00 · Sat: By appointment</span>
+            <span className={styles.infoValue}>Mon-Fri: 8:00 - 21:00 · Sat: By appointment</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoLabel}>Telephone</span>
-            <a href="tel:+2349120448767" className={styles.infoLink}>+234 912 044 8767</a>
+            <a href="tel:+2349120448767" className={styles.infoLink}>
+              +234 912 044 8767
+            </a>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoLabel}>Email</span>
-            <a href="mailto:hello@meridianmotors.ng" className={styles.infoLink}>hello@meridianmotors.ng</a>
+            <a href="mailto:hello@meridianmotors.ng" className={styles.infoLink}>
+              hello@meridianmotors.ng
+            </a>
           </div>
           <div className={styles.infoRow}>
             <Button
               as="a"
-              href={buildWhatsAppUrl('Hello, I have an enquiry about Meridian Motors.')}
+              href={buildWhatsAppUrl("Hello, I have an enquiry about Meridian Motors.")}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,11 +107,11 @@ export default function ContactMain() {
 
           <div className={styles.imgWrap}>
             <Image
-              src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600&q=80&fit=crop&auto=format"
+              src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Meridian Motors showroom detail view"
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: "cover" }}
             />
           </div>
         </div>
@@ -121,15 +126,10 @@ export default function ContactMain() {
                 Message <em>sent</em>.
               </p>
               <p className={styles.submittedBody}>
-                Thank you for reaching out. A member of the Meridian team will respond within one business day. If your enquiry is urgent, please message us directly on WhatsApp.
+                Thank you for reaching out. A member of the Meridian team will respond within one business day. If your
+                enquiry is urgent, please message us directly on WhatsApp.
               </p>
-              <Button
-                as="a"
-                href={buildWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-              >
+              <Button as="a" href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" variant="secondary">
                 Continue on WhatsApp
               </Button>
             </div>
@@ -137,7 +137,9 @@ export default function ContactMain() {
             <form onSubmit={handleSubmit}>
               <div className={styles.formGrid}>
                 <div>
-                  <label className={styles.label} htmlFor="name">Full Name</label>
+                  <label className={styles.label} htmlFor="name">
+                    Full Name
+                  </label>
                   <input
                     id="name"
                     name="name"
@@ -150,7 +152,9 @@ export default function ContactMain() {
                   />
                 </div>
                 <div>
-                  <label className={styles.label} htmlFor="phone">Phone</label>
+                  <label className={styles.label} htmlFor="phone">
+                    Phone
+                  </label>
                   <input
                     id="phone"
                     name="phone"
@@ -162,7 +166,9 @@ export default function ContactMain() {
                   />
                 </div>
                 <div className={styles.fieldFull}>
-                  <label className={styles.label} htmlFor="email">Email</label>
+                  <label className={styles.label} htmlFor="email">
+                    Email
+                  </label>
                   <input
                     id="email"
                     name="email"
@@ -175,7 +181,9 @@ export default function ContactMain() {
                   />
                 </div>
                 <div className={styles.fieldFull}>
-                  <label className={styles.label} htmlFor="enquiryType">Enquiry Type</label>
+                  <label className={styles.label} htmlFor="enquiryType">
+                    Enquiry Type
+                  </label>
                   <select
                     id="enquiryType"
                     name="enquiryType"
@@ -193,18 +201,9 @@ export default function ContactMain() {
                   </select>
                 </div>
                 <div className={styles.fieldFull}>
-                  <label className={styles.label} htmlFor="subject">Subject</label>
-                  <input
-                    id="subject"
-                    name="subject"
-                    type="text"
-                    className={styles.input}
-                    value={form.subject}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className={styles.fieldFull}>
-                  <label className={styles.label} htmlFor="message">Message</label>
+                  <label className={styles.label} htmlFor="message">
+                    Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -222,10 +221,10 @@ export default function ContactMain() {
 
               <div className={styles.responseTimes}>
                 {[
-                  { channel: 'WhatsApp', time: 'Within 1 hour' },
-                  { channel: 'Email', time: 'Within 1 business day' },
-                  { channel: 'Phone', time: 'Mon–Fri, 10:00–18:00' },
-                  { channel: 'This form', time: 'Within 1 business day' },
+                  { channel: "WhatsApp", time: "Within 1 hour" },
+                  { channel: "Email", time: "Within 1 business day" },
+                  { channel: "Phone", time: "Mon - Fri, 8:00 - 21:00" },
+                  { channel: "This form", time: "Within 1 business day" },
                 ].map((r) => (
                   <div key={r.channel} className={styles.responseRow}>
                     <span className={styles.responseChannel}>{r.channel}</span>
