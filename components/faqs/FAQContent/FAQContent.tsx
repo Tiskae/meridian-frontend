@@ -212,7 +212,7 @@ export default function FAQContent() {
               src="/images/showroom-with-ceo.jpeg"
               alt="Meridian Motors showroom, available for private viewing appointments"
               fill
-              sizes="(max-width: 1024px) 100vw, 33vw"
+              sizes="(max-width: 1023px) 100vw, 42vw"
               style={{ objectFit: "cover" }}
             />
           </div>
