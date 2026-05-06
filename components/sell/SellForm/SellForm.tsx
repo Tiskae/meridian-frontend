@@ -7,6 +7,7 @@ import SectionLabel from '@/components/ui/SectionLabel/SectionLabel';
 import Hairline from '@/components/ui/Hairline/Hairline';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
 import { gsap, EASE, DUR_REVEAL } from '@/lib/motion';
+import { analytics } from '@/lib/analytics';
 import styles from './SellForm.module.scss';
 
 const NEXT_STEPS = [
@@ -75,6 +76,7 @@ export default function SellForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    analytics.sellEnquiry();
     setSubmitted(true);
   }
 

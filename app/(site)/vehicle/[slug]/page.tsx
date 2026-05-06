@@ -15,6 +15,7 @@ import Hairline from "@/components/ui/Hairline/Hairline";
 import ClosingCTA from "@/components/home/ClosingCTA/ClosingCTA";
 import styles from "./detail.module.scss";
 import Button from "@/components/ui/Button/Button";
+import WhatsAppEnquiryButton from "@/components/vehicle/WhatsAppEnquiryButton/WhatsAppEnquiryButton";
 
 export const revalidate = 60;
 
@@ -156,9 +157,11 @@ export default async function VehicleDetailPage({ params }: PageProps) {
 
         {/* Sticky CTA Rail */}
         <aside className={styles.ctaRail}>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
-            Enquire on WhatsApp
-          </a>
+          <WhatsAppEnquiryButton
+            href={whatsappUrl}
+            vehicleName={vehicleName}
+            className={styles.ctaPrimary}
+          />
           {/* <button className={styles.ctaSecondary}>Book a Test Drive</button> */}
           {vehicle.inspectionReportAvailable && (
             <button className={styles.ctaSecondary}>Request Inspection Report</button>

@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button/Button";
 import SectionLabel from "@/components/ui/SectionLabel/SectionLabel";
 import Hairline from "@/components/ui/Hairline/Hairline";
 import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import { analytics } from "@/lib/analytics";
 import styles from "./FinanceCalculator.module.scss";
 
 function formatNaira(value: number): string {
@@ -61,6 +62,7 @@ export default function FinanceCalculator() {
 
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
+    analytics.financeEnquiry();
     setFormSubmitted(true);
   }
 

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import SplashScreen from "@/components/ui/SplashScreen/SplashScreenLoader";
 import "./globals.scss";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://meridian.tiskae.dev"),
@@ -67,12 +70,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
-        {/*
-          Runs synchronously before React boots.
-          On a first visit: hides the entire page so there is zero
-          flash of content before the splash overlay mounts.
-          On repeat visits: does nothing — page renders normally.
-        */}
         <script
           dangerouslySetInnerHTML={{
             __html: `try{if(!sessionStorage.getItem('meridian_splash_seen'))document.documentElement.style.visibility='hidden'}catch(e){}`,
@@ -83,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SplashScreen />
         {children}
       </body>
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   );
 }
