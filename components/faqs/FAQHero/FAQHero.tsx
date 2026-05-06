@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Button from "@/components/ui/Button/Button";
-import Hairline from "@/components/ui/Hairline/Hairline";
+// import Hairline from "@/components/ui/Hairline/Hairline";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
 import styles from "./FAQHero.module.scss";
