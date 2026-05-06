@@ -58,6 +58,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url: `https://meridian.tiskae.dev/vehicle/${slug}`,
       type: "website",
+      images:
+        vehicle.images && vehicle.images.length > 0
+          ? [
+              {
+                url: vehicle.images[0].asset.toString(),
+                width: 1200,
+                height: 630,
+                alt: `${name} available at Meridian Motors, Victoria Island, Lagos.`,
+              },
+            ]
+          : undefined,
     },
   };
 }
@@ -148,7 +159,7 @@ export default async function VehicleDetailPage({ params }: PageProps) {
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
             Enquire on WhatsApp
           </a>
-          <button className={styles.ctaSecondary}>Book a Test Drive</button>
+          {/* <button className={styles.ctaSecondary}>Book a Test Drive</button> */}
           {vehicle.inspectionReportAvailable && (
             <button className={styles.ctaSecondary}>Request Inspection Report</button>
           )}
@@ -176,7 +187,7 @@ export default async function VehicleDetailPage({ params }: PageProps) {
       {related.length > 0 && (
         <section className={styles.related}>
           <Hairline className={styles.relatedDivider} />
-          <SectionLabel title="Further Consideration" right="View full collection →" />
+          <SectionLabel title="Further Consideration" right="View full collection →" rightLink="/inventory" />
           <div className={styles.relatedGrid}>
             {related.map((v) => (
               <VehicleCardComponent key={v._id} vehicle={v} />

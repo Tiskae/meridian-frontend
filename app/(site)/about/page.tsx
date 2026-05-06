@@ -27,6 +27,14 @@ export const metadata: Metadata = {
       "Founded in 2018 on Victoria Island, Lagos. A curated luxury car dealership built on selectivity, independence, and transparency.",
     url: "https://meridian.tiskae.dev/about",
     type: "website",
+    images: [
+      {
+        url: "https://meridian.tiskae.dev/images/about/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Meridian Motors showroom with luxury cars on display",
+      },
+    ],
   },
 };
 
