@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import { analytics } from "@/lib/analytics";
 import styles from "./ContactMap.module.scss";
 import Button from "@/components/ui/Button/Button";
 
@@ -52,6 +53,7 @@ export default function ContactMap() {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.directions}
+          onClick={() => analytics.getDirections()}
         >
           <span className={styles.directionsIcon}>
             <svg

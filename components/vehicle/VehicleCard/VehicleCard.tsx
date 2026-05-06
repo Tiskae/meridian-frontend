@@ -7,6 +7,7 @@ import Hairline from "@/components/ui/Hairline/Hairline";
 import { urlFor } from "@/lib/sanity/image";
 import { formatPrice, formatMileage } from "@/lib/format";
 import type { VehicleCard as VehicleCardType } from "@/lib/sanity/types";
+import { analytics } from "@/lib/analytics";
 import styles from "./VehicleCard.module.scss";
 import clsx from "clsx";
 
@@ -109,7 +110,9 @@ export default function VehicleCard({ vehicle: v, stampPrefix }: VehicleCardProp
     if (suppressClick.current) {
       e.preventDefault();
       suppressClick.current = false;
+      return;
     }
+    analytics.vehicleCardClick(`${v.year} ${v.make.name} ${v.model}`);
   };
 
   const stamp = stampPrefix ? `${stampPrefix} · ${v.year}` : `${v.year} · ${v.bodyType}`;

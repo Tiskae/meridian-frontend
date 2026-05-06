@@ -10,6 +10,7 @@ import { gsap, EASE, DUR_REVEAL, DUR_GALLERY } from "@/lib/motion";
 import { urlFor } from "@/lib/sanity/image";
 import { formatPrice, formatMileage } from "@/lib/format";
 import type { VehicleCard } from "@/lib/sanity/types";
+import { analytics } from "@/lib/analytics";
 import styles from "./Hero.module.scss";
 
 const SLIDE_INTERVAL = 6000;
@@ -155,10 +156,10 @@ export default function Hero({ vehicles }: HeroProps) {
             inspected, and presented with singular intention.
           </p>
           <div className={styles.ctaRow} data-reveal="0.45">
-            <Button as="a" href="/inventory">
+            <Button as="a" href="/inventory" onClick={() => analytics.viewCollection("hero")}>
               View the Collection
             </Button>
-            <Button as="a" href="/contact" variant="secondary">
+            <Button as="a" href="/contact" variant="secondary" onClick={() => analytics.bookViewing("hero")}>
               Book a Private Viewing
             </Button>
           </div>
@@ -205,7 +206,7 @@ export default function Hero({ vehicles }: HeroProps) {
                 <button
                   key={i}
                   className={`${styles.dot} ${i === currentIdx ? styles.dotActive : ""}`}
-                  onClick={() => goTo(i)}
+                  onClick={() => { goTo(i); analytics.heroSlideChange(i); }}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}

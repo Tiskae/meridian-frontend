@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Button from "@/components/ui/Button/Button";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { gsap, EASE, DUR_REVEAL } from "@/lib/motion";
+import { analytics } from "@/lib/analytics";
 import styles from "./ClosingCTA.module.scss";
 
 export default function ClosingCTA() {
@@ -62,10 +63,10 @@ export default function ClosingCTA() {
       </div>
 
       <div className={styles.right} data-cta-right>
-        <Button as="a" href="/contact" variant="white">
+        <Button as="a" href="/contact" variant="white" onClick={() => analytics.bookViewing("closing_cta")}>
           Book a Private Viewing
         </Button>
-        <Button as="a" href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" variant="white_outline">
+        <Button as="a" href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer" variant="white_outline" onClick={() => analytics.whatsappEnquiry("general")}>
           Enquire on WhatsApp
         </Button>
       </div>
